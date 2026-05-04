@@ -1,0 +1,289 @@
+<div class="bootstrap-demo">
+      <div class="demo-header">
+        <h4>{{ 'demos.bootstrap.title' | translate }}</h4>
+        <p class="demo-description">
+          {{ 'demos.bootstrap.description' | translate }}
+        </p>
+      </div>
+
+      <!-- View Mode Controls -->
+      <div class="view-controls">
+        <div class="control-group">
+          <label>{{ 'demos.bootstrap.viewModeLabel' | translate }}</label>
+          <div class="view-buttons">
+            <button
+              class="view-btn"
+              [class.active]="viewMode() === 'desktop'"
+              (click)="setViewMode('desktop')">
+              <i class="pi pi-desktop"></i>
+              {{ 'demos.bootstrap.viewModes.desktop' | translate }}
+            </button>
+            <button
+              class="view-btn"
+              [class.active]="viewMode() === 'tablet'"
+              (click)="setViewMode('tablet')">
+              <i class="pi pi-tablet"></i>
+              {{ 'demos.bootstrap.viewModes.tablet' | translate }}
+            </button>
+            <button
+              class="view-btn"
+              [class.active]="viewMode() === 'mobile'"
+              (click)="setViewMode('mobile')">
+              <i class="pi pi-mobile"></i>
+              {{ 'demos.bootstrap.viewModes.mobile' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Responsive Grid Demo -->
+      <div class="grid-container" [class]="getContainerClass()">
+        <!-- Header Row -->
+        <div class="grid-row header-row">
+          <div class="grid-col col-12">
+            <div class="demo-card header-card">
+              <h5>{{ 'demos.bootstrap.dashboardTitle' | translate }}</h5>
+              <p>{{ 'demos.bootstrap.dashboardSubtitle' | translate }} {{ viewMode() | titlecase }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="grid-row stats-row">
+          <div class="grid-col" [class]="getStatsColClass()">
+            <div class="demo-card stat-card">
+              <div class="stat-icon">
+                <i class="pi pi-users"></i>
+              </div>
+              <div class="stat-content">
+                <h6>Total Users</h6>
+                <div class="stat-number">12,345</div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-col" [class]="getStatsColClass()">
+            <div class="demo-card stat-card">
+              <div class="stat-icon">
+                <i class="pi pi-shopping-cart"></i>
+              </div>
+              <div class="stat-content">
+                <h6>Sales</h6>
+                <div class="stat-number">$89,234</div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-col" [class]="getStatsColClass()">
+            <div class="demo-card stat-card">
+              <div class="stat-icon">
+                <i class="pi pi-chart-line"></i>
+              </div>
+              <div class="stat-content">
+                <h6>Growth</h6>
+                <div class="stat-number">+23.5%</div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-col" [class]="getStatsColClass()">
+            <div class="demo-card stat-card">
+              <div class="stat-icon">
+                <i class="pi pi-star"></i>
+              </div>
+              <div class="stat-content">
+                <h6>Rating</h6>
+                <div class="stat-number">4.8</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content Row -->
+        <div class="grid-row main-row">
+          <!-- Main Content -->
+          <div class="grid-col" [class]="getMainColClass()">
+            <div class="demo-card main-card">
+              <h5>Conteúdo Principal</h5>
+              <div class="card-content">
+                <div class="content-section">
+                  <h6>Produtos Recentes</h6>
+                  <div class="product-list">
+                    <div class="product-item" *ngFor="let product of recentProducts()">
+                      <div class="product-info">
+                        <span class="product-name">{{ product.name }}</span>
+                        <span class="product-price">{{ product.price }}</span>
+                      </div>
+                      <div class="product-status" [class]="product.status">
+                        {{ product.status === 'available' ? 'Disponível' : 'Indisponível' }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="content-section">
+                  <h6>Atividades Recentes</h6>
+                  <div class="activity-list">
+                    <div class="activity-item" *ngFor="let activity of recentActivities()">
+                      <div class="activity-icon" [class]="activity.type">
+                        <i [class]="activity.icon"></i>
+                      </div>
+                      <div class="activity-content">
+                        <span class="activity-text">{{ activity.text }}</span>
+                        <span class="activity-time">{{ activity.time }}</span>
+                      </div>
+            </div>
+
+            <!-- User Management Panel -->
+            <div class="demo-card user-management" *ngIf="showUserManagement()">
+              <h5>Gerenciamento de Usuários</h5>
+              <div class="user-list">
+                <div class="user-item">
+                  <div class="user-avatar">
+                    <i class="pi pi-user"></i>
+                  </div>
+                  <div class="user-info">
+                    <span class="user-name">João Silva</span>
+                    <span class="user-role">Administrador</span>
+                  </div>
+                  <button class="user-action-btn">
+                    <i class="pi pi-pencil"></i>
+                  </button>
+                </div>
+                <div class="user-item">
+                  <div class="user-avatar">
+                    <i class="pi pi-user"></i>
+                  </div>
+                  <div class="user-info">
+                    <span class="user-name">Maria Santos</span>
+                    <span class="user-role">Usuário</span>
+                  </div>
+                  <button class="user-action-btn">
+                    <i class="pi pi-pencil"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Reports Panel -->
+            <div class="demo-card reports-panel" *ngIf="showReports()">
+              <h5>Relatórios do Sistema</h5>
+              <div class="report-stats">
+                <div class="report-item">
+                  <div class="report-icon">
+                    <i class="pi pi-users"></i>
+                  </div>
+                  <div class="report-data">
+                    <span class="report-value">1,245</span>
+                    <span class="report-label">Usuários Ativos</span>
+                  </div>
+                </div>
+                <div class="report-item">
+                  <div class="report-icon">
+                    <i class="pi pi-shopping-cart"></i>
+                  </div>
+                  <div class="report-data">
+                    <span class="report-value">89,432</span>
+                    <span class="report-label">Vendas Totais</span>
+                  </div>
+                </div>
+                <div class="report-item">
+                  <div class="report-icon">
+                    <i class="pi pi-chart-line"></i>
+                  </div>
+                  <div class="report-data">
+                    <span class="report-value">+23.5%</span>
+                    <span class="report-label">Crescimento</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="grid-col" [class]="getSidebarColClass()">
+            <div class="demo-card sidebar-card">
+              <h5>Atividades Recentes</h5>
+              <div class="activity-feed">
+                <div class="activity-item-compact" *ngFor="let activity of recentActivities()">
+                  <div class="activity-icon-small" [class]="activity.type">
+                    <i [class]="activity.icon"></i>
+                  </div>
+                  <div class="activity-content-compact">
+                    <span class="activity-text">{{ activity.text }}</span>
+                    <span class="activity-time">{{ activity.time }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="demo-card quick-actions">
+              <h5>{{ 'demos.bootstrap.quickActionsTitle' | translate }}</h5>
+              <div class="action-buttons">
+                <button class="action-btn primary" (click)="addNewProduct()">
+                  <i class="pi pi-plus"></i>
+                  {{ 'demos.bootstrap.actions.addProduct' | translate }}
+                </button>
+                <button class="action-btn secondary" (click)="toggleUserManagement()">
+                  <i class="pi pi-users"></i>
+                  {{ 'demos.bootstrap.actions.manageUsers' | translate }}
+                </button>
+                <button class="action-btn secondary" (click)="toggleReports()">
+                  <i class="pi pi-chart-bar"></i>
+                  {{ 'demos.bootstrap.actions.reports' | translate }}
+                </button>
+              </div>
+
+              <!-- Action Feedback -->
+              <div class="action-feedback" *ngIf="lastAction()">
+                <div class="feedback-message">
+                  <i class="pi pi-check-circle"></i>
+                  {{ lastAction() | translate }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spacer to prevent overlap -->
+      <div class="section-spacer"></div>
+
+      <!-- Grid Explanation -->
+      <div class="grid-explanation">
+        <h5>Como Funciona o Sistema de Grid</h5>
+        <div class="explanation-content">
+          <div class="explanation-item">
+            <div class="explanation-icon">
+              <i class="pi pi-info-circle"></i>
+            </div>
+            <div class="explanation-text">
+              <h6>Breakpoints Responsivos</h6>
+              <p>O Bootstrap usa breakpoints para diferentes tamanhos de tela:</p>
+              <ul>
+                <li><code>col-</code> - Extra small (&lt;576px)</li>
+                <li><code>col-sm-</code> - Small (≥576px)</li>
+                <li><code>col-md-</code> - Medium (≥768px)</li>
+                <li><code>col-lg-</code> - Large (≥992px)</li>
+                <li><code>col-xl-</code> - Extra large (≥1200px)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="explanation-item">
+            <div class="explanation-icon">
+              <i class="pi pi-th-large"></i>
+            </div>
+            <div class="explanation-text">
+              <h6>Sistema de 12 Colunas</h6>
+              <p>Cada linha é dividida em até 12 colunas. As classes definem quantas colunas cada elemento ocupa.</p>
+              <p class="current-layout">
+                Layout atual (<strong>{{ viewMode() | titlecase }}</strong>):
+                <span class="layout-info">{{ getCurrentLayoutInfo() }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

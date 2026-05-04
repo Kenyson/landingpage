@@ -1,0 +1,217 @@
+<section id="skills" class="skills section">
+  <div class="container">
+    <h2 class="section-title">{{ 'skills.title' | translate }}</h2>
+
+    <div class="skills-layout">
+      <!-- Sidebar with skills list -->
+      <div class="skills-sidebar">
+        @for (category of skillCategories; track category.key) {
+          <div class="category-section">
+            <h3 class="category-title">{{ getCategoryLabel(category.key) }}</h3>
+            <div class="skills-list">
+              @for (skill of getSkillsByCategory(category.key); track skill.name) {
+                <div
+                  class="skill-item"
+                  [class.selected]="isSkillSelected(skill)"
+                  (click)="selectSkill(skill)">
+                  <div class="skill-header">
+                    <i class="{{ skill.icon }}" style="font-size: 1.5rem; color: #60a5fa;"></i>
+                  <div class="skill-info">
+                    <span class="skill-name">{{ skill.name | translate }}</span>
+                  </div>
+                  </div>
+                  <p class="skill-description">{{ skill.description | translate }}</p>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Main content area -->
+      <div class="skills-content">
+        @if (!selectedSkill) {
+          <div class="welcome-message">
+            <div class="welcome-content">
+              <i class="pi pi-code" style="font-size: 4rem; color: #60a5fa; margin-bottom: 1rem;"></i>
+              <h3>{{ 'skills.welcome.title' | translate }}</h3>
+              <p>{{ 'skills.welcome.description' | translate }}</p>
+              <div class="welcome-stats">
+                <div class="stat">
+                  <span class="stat-number">{{ skills.length }}</span>
+                  <span class="stat-label">{{ 'skills.stats.technologies' | translate }}</span>
+                </div>
+
+                <div class="stat">
+                  <span class="stat-number">3</span>
+                  <span class="stat-label">{{ 'skills.stats.categories' | translate }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        } @else {
+          <div class="skill-detail">
+            <div class="skill-detail-header">
+              <div class="skill-overview">
+                <i class="{{ selectedSkill.icon }}" style="font-size: 3rem; color: #60a5fa;"></i>
+                  <div class="skill-meta">
+                    <h2>{{ selectedSkill.name | translate }}</h2>
+                    <p>{{ selectedSkill.longDescription | translate }}</p>
+                  </div>
+              </div>
+              <button class="close-btn" (click)="closeSkillDetail()">
+                <i class="pi pi-times"></i>
+              </button>
+            </div>
+
+            <div class="skill-detail-content">
+              @if (selectedSkill.demoType === 'code') {
+                <div class="code-demo">
+                  <pre class="skill-code"><code>{{ selectedSkill.demoCode }}</code></pre>
+                </div>
+              }
+
+               @if (selectedSkill.demoType === 'interactive') {
+                 <div class="interactive-demo">
+                   @if (selectedSkill.name === 'skills.items.javascript.name') {
+                     <app-javascript-demo></app-javascript-demo>
+                   }
+
+                   @if (selectedSkill.name === 'skills.items.angular.name') {
+                     <app-angular-demo></app-angular-demo>
+                   }
+
+                   @if (selectedSkill.name === 'skills.items.typescript.name') {
+                     <app-typescript-demo></app-typescript-demo>
+                   }
+
+                   @if (selectedSkill.name === 'skills.items.html5.name') {
+                     <app-html5-demo></app-html5-demo>
+                   }
+
+                   @if (selectedSkill.name === 'skills.items.css3.name') {
+                     <app-css3-demo></app-css3-demo>
+                   }
+
+                   @if (selectedSkill.name === 'skills.items.bootstrap.name') {
+                     <app-bootstrap-demo></app-bootstrap-demo>
+                   }
+
+                   @if (selectedSkill.name === 'skills.items.primeng.name') {
+                     <app-primeng-demo></app-primeng-demo>
+                   }
+
+                   @if (selectedSkill.name !== 'skills.items.javascript.name' && selectedSkill.name !== 'skills.items.angular.name' && selectedSkill.name !== 'skills.items.typescript.name' && selectedSkill.name !== 'skills.items.html5.name' && selectedSkill.name !== 'skills.items.css3.name' && selectedSkill.name !== 'skills.items.bootstrap.name' && selectedSkill.name !== 'skills.items.primeng.name') {
+                     <div class="demo-placeholder">
+                       <p>{{ selectedSkill.name | translate }}</p>
+                     </div>
+                   }
+                 </div>
+              }
+
+               @if (selectedSkill.demoType === 'workflow') {
+                 <div class="workflow-demo">
+                   @if (selectedSkill.name === 'skills.items.git.name') {
+                     <app-git-demo></app-git-demo>
+                   }
+
+                   @if (selectedSkill.name === 'skills.items.vscode.name') {
+                     <app-vscode-demo></app-vscode-demo>
+                   }
+                 </div>
+               }
+
+              @if (selectedSkill.examples && selectedSkill.examples.length > 0) {
+                <div class="skill-examples">
+                  <h4>{{ 'skills.examples' | translate }}</h4>
+                  <div class="examples-grid">
+                    @for (example of selectedSkill.examples; track example.title) {
+                      <div class="example-card">
+                        <div class="example-header">
+                          <h5>{{ example.title | translate }}</h5>
+                          <p>{{ example.description | translate }}</p>
+                        </div>
+                        <div class="example-actions">
+                          <p-button
+                            [label]="'skills.button.viewExample' | translate"
+                            icon="pi pi-code"
+                            size="small"
+                            (click)="openExampleModal(example)">
+                          </p-button>
+                        </div>
+                      </div>
+                    }
+                  </div>
+                </div>
+              }
+
+              <div class="skill-projects">
+                <h4>{{ 'skills.projectsUsing' | translate }} {{ selectedSkill.name | translate }}</h4>
+                <div class="project-tags">
+                  @for (project of getProjectsUsingSkill(selectedSkill.name); track project) {
+                    <span class="project-tag">{{ project }}</span>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Example Modal -->
+    <p-dialog
+      [(visible)]="exampleModalVisible"
+      [modal]="true"
+      [style]="{'width': '70rem', 'max-width': '90vw'}"
+      [closable]="true"
+      [closeOnEscape]="true"
+      [header]="'skills.modal.exampleTitle' | translate"
+      (onHide)="closeExampleModal()">
+
+      @if (selectedExample) {
+        <div class="example-modal-content">
+          <div class="example-modal-header">
+            <h3>{{ selectedExample.title | translate }}</h3>
+            <p class="example-description">{{ selectedExample.description | translate }}</p>
+          </div>
+
+          <div class="example-modal-body">
+            @if (selectedExample.code) {
+              <div class="code-section">
+                <h4>{{ 'skills.modal.codeTitle' | translate }}</h4>
+                <pre class="example-code-modal"><code>{{ selectedExample.code }}</code></pre>
+              </div>
+            }
+
+            <div class="readme-section">
+              <h4>{{ 'skills.modal.readmeTitle' | translate }}</h4>
+              <div class="readme-content">
+                <div class="readme-item">
+                  <h5>{{ 'skills.modal.readme.objective' | translate }}</h5>
+                  <p>{{ selectedExample.readme?.objective || ('skills.modal.readme.objectiveDesc' | translate) }}</p>
+                </div>
+
+                <div class="readme-item">
+                  <h5>{{ 'skills.modal.readme.prerequisites' | translate }}</h5>
+                  <p>{{ selectedExample.readme?.prerequisites || ('skills.modal.readme.prerequisitesDesc' | translate) }}</p>
+                </div>
+
+                <div class="readme-item">
+                  <h5>{{ 'skills.modal.readme.howToRun' | translate }}</h5>
+                  <p>{{ selectedExample.readme?.howToRun || ('skills.modal.readme.howToRunDesc' | translate) }}</p>
+                </div>
+
+                <div class="readme-item">
+                  <h5>{{ 'skills.modal.readme.tips' | translate }}</h5>
+                  <p>{{ selectedExample.readme?.tips || ('skills.modal.readme.tipsDesc' | translate) }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </p-dialog>
+
+  </div>
+</section>

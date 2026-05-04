@@ -1,0 +1,61 @@
+<header class="header" [class.light-theme]="currentTheme === 'light'">
+  <nav class="nav container">
+    <a href="#home" class="nav-logo">
+      <span class="logo-text">Kenyson</span>
+    </a>
+        <ul class="nav-menu" [class.active]="mobileMenuOpen()">
+          <li class="nav-item">
+            <a routerLink="/" routerLinkActive="active" class="nav-link" (click)="closeMenu()">{{ 'menu.home' | translate }}</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/about" routerLinkActive="active" class="nav-link" (click)="closeMenu()">{{ 'menu.about' | translate }}</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/skills" routerLinkActive="active" class="nav-link" (click)="closeMenu()">{{ 'menu.skills' | translate }}</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/experience" routerLinkActive="active" class="nav-link" (click)="closeMenu()">{{ 'menu.experience' | translate }}</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/projects" routerLinkActive="active" class="nav-link" (click)="closeMenu()">{{ 'menu.projects' | translate }}</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/contact" routerLinkActive="active" class="nav-link" (click)="closeMenu()">{{ 'menu.contact' | translate }}</a>
+          </li>
+        </ul>
+    <div class="nav-actions">
+      <div class="theme-toggle">
+        <button
+          class="theme-btn"
+          (click)="toggleTheme()"
+          [attr.aria-label]="themeService.getThemeLabel()">
+          <i [class]="themeService.getThemeIcon()"></i>
+        </button>
+      </div>
+
+      <div class="language-switcher">
+        <button class="lang-btn" (click)="toggleLangMenu()" aria-label="Change language">
+          {{ getCurrentFlag() }}
+        </button>
+        @if (langMenuOpen()) {
+          <div class="lang-dropdown">
+            @for (lang of translationService.availableLanguages; track lang.code) {
+              <button
+                class="lang-option"
+                [class.active]="translationService.currentLanguage() === lang.code"
+                (click)="selectLanguage(lang.code)">
+                <span class="flag">{{ lang.flag }}</span>
+                <span>{{ lang.name }}</span>
+              </button>
+            }
+          </div>
+        }
+      </div>
+      <button class="hamburger" (click)="toggleMenu()" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+</header>

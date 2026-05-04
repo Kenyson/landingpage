@@ -1,0 +1,156 @@
+<div class="css3-demo">
+      <div class="demo-header">
+        <h4>{{ 'demos.css3.title' | translate }}</h4>
+        <p class="demo-description">
+          {{ 'demos.css3.description' | translate }}
+        </p>
+      </div>
+
+      <div class="animations-grid">
+        <!-- Hover Animation Demo -->
+        <div class="animation-card">
+          <h5>{{ 'demos.css3.hoverTitle' | translate }}</h5>
+          <div class="hover-demo">
+            <div class="hover-element" [class.animated]="hoverAnimation">
+              <i class="pi pi-star"></i>
+              <span>{{ 'demos.css3.hoverText' | translate }}</span>
+            </div>
+          </div>
+          <button
+            class="toggle-btn"
+            (click)="toggleHoverAnimation()">
+            {{ hoverAnimation ? ('demos.css3.hoverDeactivate' | translate) : ('demos.css3.hoverActivate' | translate) }}
+          </button>
+        </div>
+
+        <!-- Transform Animation Demo -->
+        <div class="animation-card">
+          <h5>{{ 'demos.css3.transformTitle' | translate }}</h5>
+          <div class="transform-demo">
+            <div
+              class="transform-element"
+              [class.animated]="transformAnimation">
+              <i class="pi pi-box"></i>
+            </div>
+          </div>
+          <button
+            class="toggle-btn"
+            (click)="toggleTransformAnimation()">
+            {{ transformAnimation ? ('demos.css3.transformStop' | translate) : ('demos.css3.transformStart' | translate) }}
+          </button>
+        </div>
+
+        <!-- Keyframe Animation Demo -->
+        <div class="animation-card">
+          <h5>{{ 'demos.css3.keyframeTitle' | translate }}</h5>
+          <div class="keyframe-demo">
+            <div class="keyframe-container">
+              <div
+                class="keyframe-element bounce"
+                [class.animated]="keyframeAnimation">
+                <i class="pi pi-circle"></i>
+              </div>
+            </div>
+          </div>
+          <button
+            class="toggle-btn"
+            (click)="toggleKeyframeAnimation()">
+            {{ keyframeAnimation ? ('demos.css3.keyframeStop' | translate) : ('demos.css3.keyframeStart' | translate) }}
+          </button>
+        </div>
+
+        <!-- Loading Animation Demo -->
+        <div class="animation-card">
+          <h5>{{ 'demos.css3.loadingTitle' | translate }}</h5>
+          <div class="loading-demo">
+            <div class="spinner-container">
+              <div class="spinner" [class.spinning]="loadingAnimation">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="toggle-btn"
+            (click)="toggleLoadingAnimation()">
+            {{ loadingAnimation ? ('demos.css3.loadingStop' | translate) : ('demos.css3.loadingStart' | translate) }}
+          </button>
+        </div>
+
+        <!-- Gradient Animation Demo -->
+        <div class="animation-card">
+          <h5>{{ 'demos.css3.gradientTitle' | translate }}</h5>
+          <div class="gradient-demo">
+            <div
+              class="gradient-element"
+              [class.animated]="gradientAnimation">
+              <i class="pi pi-palette"></i>
+              <span>{{ 'demos.css3.gradientTitle' | translate }}</span>
+            </div>
+          </div>
+          <button
+            class="toggle-btn"
+            (click)="toggleGradientAnimation()">
+            {{ gradientAnimation ? ('demos.css3.gradientStop' | translate) : ('demos.css3.gradientStart' | translate) }}
+          </button>
+        </div>
+
+        <!-- Pulse Animation Demo -->
+        <div class="animation-card">
+          <h5>{{ 'demos.css3.pulseTitle' | translate }}</h5>
+          <div class="pulse-demo">
+            <div
+              class="pulse-element"
+              [class.animated]="pulseAnimation">
+              <i class="pi pi-bell"></i>
+              <span>{{ 'demos.css3.pulseText' | translate }}</span>
+            </div>
+          </div>
+          <button
+            class="toggle-btn"
+            (click)="togglePulseAnimation()">
+            {{ pulseAnimation ? ('demos.css3.pulseStop' | translate) : ('demos.css3.pulseStart' | translate) }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Custom Animation Controls -->
+      <div class="custom-controls">
+        <h5>{{ 'demos.css3.controlsTitle' | translate }}</h5>
+        <div class="control-group">
+          <label>{{ 'demos.css3.speedLabel' | translate }}</label>
+          <input
+            type="range"
+            min="0.1"
+            max="3"
+            step="0.1"
+            [value]="animationSpeed()"
+            (input)="setAnimationSpeed($any($event.target).value)"
+            class="speed-slider">
+          <span class="speed-value">{{ animationSpeed() }}s</span>
+        </div>
+
+        <div class="control-group">
+          <label>{{ 'demos.css3.easingLabel' | translate }}</label>
+          <select
+            [value]="easingFunction()"
+            (change)="setEasingFunction($any($event.target).value)"
+            class="easing-select">
+            <option value="ease">Ease</option>
+            <option value="linear">Linear</option>
+            <option value="ease-in">Ease In</option>
+            <option value="ease-out">Ease Out</option>
+            <option value="ease-in-out">Ease In Out</option>
+            <option value="cubic-bezier(0.68, -0.55, 0.265, 1.55)">Bounce</option>
+          </select>
+        </div>
+
+        <button
+          class="reset-btn"
+          (click)="resetAnimations()">
+          <i class="pi pi-refresh"></i>
+          {{ 'demos.css3.resetAll' | translate }}
+        </button>
+      </div>
+    </div>

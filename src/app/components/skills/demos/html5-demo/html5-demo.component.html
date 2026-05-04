@@ -1,0 +1,139 @@
+<div class="html5-demo">
+      <div class="form-container">
+        <h4>{{ 'demos.html5.title' | translate }}</h4>
+        <p class="demo-description">
+          {{ 'demos.html5.description' | translate }}
+        </p>
+
+        <form #html5Form="ngForm" (ngSubmit)="submitForm()" novalidate>
+          <fieldset class="form-fieldset">
+            <legend>{{ 'demos.html5.labels.contactInfo' | translate }}</legend>
+
+            <!-- Name Field -->
+            <div class="form-group">
+              <label for="name" class="form-label">{{ 'demos.html5.labels.name' | translate }}:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                [(ngModel)]="formData.name"
+                [placeholder]="'demos.html5.placeholders.name' | translate"
+                class="form-input"
+                required
+                minlength="2"
+                maxlength="50"
+                #name="ngModel">
+
+              <div class="field-help" id="name-help">
+                {{ 'demos.html5.helpText.name' | translate }}
+              </div>
+
+              <div class="validation-errors" *ngIf="name.invalid && (name.dirty || name.touched)">
+                <small *ngIf="name.errors?.['required']">{{ 'demos.html5.validation.nameRequired' | translate }}</small>
+                <small *ngIf="name.errors?.['minlength']">{{ 'demos.html5.validation.nameMinLength' | translate }}</small>
+                <small *ngIf="name.errors?.['maxlength']">{{ 'demos.html5.validation.nameMaxLength' | translate }}</small>
+              </div>
+            </div>
+
+            <!-- Email Field -->
+            <div class="form-group">
+              <label for="email" class="form-label">{{ 'demos.html5.labels.email' | translate }}:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                [(ngModel)]="formData.email"
+                [placeholder]="'demos.html5.placeholders.email' | translate"
+                class="form-input"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                #email="ngModel">
+
+              <div class="validation-errors" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <small *ngIf="email.errors?.['required']">{{ 'demos.html5.validation.emailRequired' | translate }}</small>
+                <small *ngIf="email.errors?.['pattern']">{{ 'demos.html5.validation.emailPattern' | translate }}</small>
+              </div>
+            </div>
+
+            <!-- Age Field -->
+            <div class="form-group">
+              <label for="age" class="form-label">{{ 'demos.html5.labels.age' | translate }}:</label>
+              <input
+                type="number"
+                id="age"
+                name="age"
+                [(ngModel)]="formData.age"
+                [placeholder]="'demos.html5.placeholders.age' | translate"
+                class="form-input"
+                required
+                min="18"
+                max="120"
+                #age="ngModel">
+
+              <div class="validation-errors" *ngIf="age.invalid && (age.dirty || age.touched)">
+                <small *ngIf="age.errors?.['required']">{{ 'demos.html5.validation.ageRequired' | translate }}</small>
+                <small *ngIf="age.errors?.['min']">{{ 'demos.html5.validation.ageMin' | translate }}</small>
+                <small *ngIf="age.errors?.['max']">{{ 'demos.html5.validation.ageMax' | translate }}</small>
+              </div>
+            </div>
+
+            <!-- Message Field -->
+            <div class="form-group">
+              <label for="message" class="form-label">{{ 'demos.html5.labels.message' | translate }}:</label>
+              <textarea
+                id="message"
+                name="message"
+                [(ngModel)]="formData.message"
+                [placeholder]="'demos.html5.placeholders.message' | translate"
+                class="form-textarea"
+                required
+                minlength="10"
+                maxlength="500"
+                rows="4"
+                #message="ngModel"></textarea>
+
+              <div class="field-help">
+                {{ 'demos.html5.helpText.message' | translate }}
+              </div>
+
+              <div class="validation-errors" *ngIf="message.invalid && (message.dirty || message.touched)">
+                <small *ngIf="message.errors?.['required']">{{ 'demos.html5.validation.messageRequired' | translate }}</small>
+                <small *ngIf="message.errors?.['minlength']">{{ 'demos.html5.validation.messageMinLength' | translate }}</small>
+                <small *ngIf="message.errors?.['maxlength']">{{ 'demos.html5.validation.messageMaxLength' | translate }}</small>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-actions">
+              <button
+                type="submit"
+                class="submit-btn"
+                [disabled]="html5Form.invalid">
+                <i class="pi pi-send"></i>
+                {{ 'demos.html5.submit' | translate }}
+              </button>
+              <button
+                type="button"
+                class="reset-btn"
+                (click)="resetForm()">
+                <i class="pi pi-refresh"></i>
+                {{ 'demos.html5.clear' | translate }}
+              </button>
+            </div>
+          </fieldset>
+        </form>
+
+        <!-- Success Message -->
+        <div class="success-message" *ngIf="showSuccessMessage">
+          <i class="pi pi-check-circle"></i>
+          <h5>{{ 'demos.html5.successMessage' | translate }}</h5>
+          <p>{{ 'demos.html5.dataReceived' | translate }}</p>
+          <ul>
+            <li><strong>{{ 'demos.html5.fieldLabels.name' | translate }}</strong> {{ submittedData?.name }}</li>
+            <li><strong>{{ 'demos.html5.fieldLabels.email' | translate }}</strong> {{ submittedData?.email }}</li>
+            <li><strong>{{ 'demos.html5.fieldLabels.age' | translate }}</strong> {{ submittedData?.age }}</li>
+            <li><strong>{{ 'demos.html5.fieldLabels.message' | translate }}</strong> {{ submittedData?.message }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>

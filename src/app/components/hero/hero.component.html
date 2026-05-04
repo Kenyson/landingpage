@@ -1,0 +1,62 @@
+<section id="home" class="hero">
+  <div class="hero-bg">
+    <div class="gradient-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+  </div>
+  
+  <div class="container hero-content">
+    <div class="hero-visual">
+      <div class="profile-wrapper">
+        <div class="profile-glow"></div>
+        <div class="profile-image">
+          <div class="profile-placeholder">
+            <span class="initials">KO</span>
+          </div>
+        </div>
+        <div class="floating-badge badge-1">
+          <span class="badge-icon">⚛️</span>
+        </div>
+        <div class="floating-badge badge-2">
+          <span class="badge-icon">🎨</span>
+        </div>
+        <div class="floating-badge badge-3">
+          <span class="badge-icon">⚡</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-text">
+      <p class="greeting">{{ 'home.greeting' | translate }}</p>
+      <h1 class="name">{{ 'home.name' | translate }}</h1>
+      <h2 class="title">{{ 'home.title' | translate }}</h2>
+      <p class="tagline">
+        {{ 'home.tagline' | translate }}
+      </p>
+          <div class="cta-buttons">
+            <p-button
+              [routerLink]="['/contact']"
+              [label]="'home.ctaTouch' | translate"
+              severity="primary"
+              size="large">
+            </p-button>
+            <p-button
+              [routerLink]="['/projects']"
+              [label]="'home.ctaProjects' | translate"
+              severity="secondary"
+              variant="outlined"
+              size="large">
+            </p-button>
+          </div>
+    </div>
+  </div>
+  
+  <div class="scroll-indicator">
+    <span>{{ 'home.scroll' | translate }}</span>
+    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path d="M12 5v14M5 12l7 7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>

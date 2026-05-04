@@ -1,0 +1,43 @@
+<section id="about" class="about section">
+  <div class="container">
+    <h2 class="section-title">{{ 'about.title' | translate }}</h2>
+    <div class="about-content">
+      <div class="about-image">
+        <div class="image-frame">
+          <div class="profile-placeholder">
+            <span class="initials">KO</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="intro" [innerHTML]="'about.intro' | translate"></p>
+        <div class="about-details">
+          <div class="detail-item">
+            <span class="label">{{ 'about.details.location' | translate }}:</span>
+            <span class="value">Pederobba (TV), Italy</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">{{ 'about.details.nationality' | translate }}:</span>
+            <span class="value">Brazilian</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">{{ 'about.details.age' | translate }}:</span>
+            <span class="value">29 years (born 1996)</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">{{ 'about.details.languages' | translate }}:</span>
+            <span class="value">Portuguese (Native), Italian (Fluent), English (Advanced)</span>
+          </div>
+        </div>
+        <div class="education">
+          <h3>{{ 'about.education.title' | translate }}</h3>
+          <p>
+            <strong>{{ 'about.education.degree' | translate }}</strong><br>
+            {{ 'about.education.university' | translate }}<br>
+            {{ 'about.education.date' | translate }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

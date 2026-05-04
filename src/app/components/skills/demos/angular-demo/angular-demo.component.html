@@ -1,0 +1,279 @@
+<div class="angular-demo">
+  <div class="demo-header">
+    <h4>{{ 'demos.angular.title' | translate }}</h4>
+    <p class="demo-description">
+      {{ 'demos.angular.description' | translate }}
+    </p>
+  </div>
+
+  <div class="demo-grid">
+    <!-- Signals Demo -->
+    <div class="demo-section signals-section">
+      <h5>{{ 'demos.angular.signalsTitle' | translate }}</h5>
+      <div class="signals-demo">
+        <div class="counter-controls">
+          <button
+            class="counter-btn decrement"
+            (click)="decrementCounter()"
+            [disabled]="counter() <= 0">
+            <i class="pi pi-minus"></i>
+          </button>
+
+          <div class="counter-display">
+            <div class="counter-value">{{ counter() }}</div>
+            <div class="counter-label">{{ 'demos.angular.counterLabel' | translate }}</div>
+          </div>
+
+          <button
+            class="counter-btn increment"
+            (click)="incrementCounter()">
+            <i class="pi pi-plus"></i>
+          </button>
+        </div>
+
+        <div class="computed-values">
+          <div class="computed-item">
+            <span class="computed-label">{{ 'demos.angular.doubleLabel' | translate }}</span>
+            <span class="computed-value">{{ doubleCounter() }}</span>
+          </div>
+          <div class="computed-item">
+            <span class="computed-label">{{ 'demos.angular.squareLabel' | translate }}</span>
+            <span class="computed-value">{{ squareCounter() }}</span>
+          </div>
+          <div class="computed-item">
+            <span class="computed-label">{{ 'demos.angular.statusLabel' | translate }}</span>
+            <span class="computed-value" [class]="counterStatusClass()">
+              {{ counterStatus() }}
+            </span>
+          </div>
+        </div>
+
+        <div class="signals-info">
+          <p><strong>Signals:</strong> Dados reativos que notificam automaticamente os consumidores quando mudam.</p>
+          <p><strong>Computed:</strong> Valores derivados de signals, recalculados automaticamente quando dependências mudam.</p>
+          <p><strong>Effect:</strong> Side effects que rodam quando signals mudam (veja console para logs).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task Manager Demo -->
+    <div class="demo-section task-section">
+      <h5>Gerenciador de Tarefas com Signals</h5>
+      <div class="task-manager">
+        <form class="task-form" (ngSubmit)="addTask()" #taskForm="ngForm">
+          <div class="form-row">
+            <input
+              type="text"
+              [(ngModel)]="newTaskTitle"
+              name="taskTitle"
+              [placeholder]="'demos.angular.taskInput' | translate"
+              class="task-input"
+              required
+              minlength="3"
+              #taskTitle="ngModel">
+
+            <select
+              [(ngModel)]="newTaskPriority"
+              name="taskPriority"
+              class="priority-select">
+              <option value="low">{{ 'demos.angular.priorityLow' | translate }}</option>
+              <option value="medium">{{ 'demos.angular.priorityMedium' | translate }}</option>
+              <option value="high">{{ 'demos.angular.priorityHigh' | translate }}</option>
+            </select>
+
+            <button
+              type="submit"
+              class="add-task-btn"
+              [disabled]="!taskForm.valid">
+              <i class="pi pi-plus"></i>
+              {{ 'demos.angular.taskAdd' | translate }}
+            </button>
+          </div>
+
+          <div class="form-errors" *ngIf="taskTitle.invalid && (taskTitle.dirty || taskTitle.touched)">
+            <small *ngIf="taskTitle.errors?.['required']">{{ 'demos.angular.taskRequired' | translate }}</small>
+            <small *ngIf="taskTitle.errors?.['minlength']">{{ 'demos.angular.taskMinLength' | translate }}</small>
+          </div>
+        </form>
+
+        <div class="task-list">
+          <div
+            class="task-item"
+            *ngFor="let task of tasks(); trackBy: trackByTaskId"
+            [class.completed]="task.completed">
+
+            <div class="task-content">
+              <input
+                type="checkbox"
+                [checked]="task.completed"
+                (change)="toggleTask(task.id)"
+                class="task-checkbox">
+
+              <span class="task-title" [class.strike]="task.completed">
+                {{ task.title }}
+              </span>
+
+              <span class="task-priority" [class]="task.priority">
+                {{ getPriorityLabel(task.priority) }}
+              </span>
+            </div>
+
+            <button
+              class="remove-task-btn"
+              (click)="removeTask(task.id)"
+              title="Remover tarefa">
+              <i class="pi pi-trash"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="task-stats" *ngIf="tasks().length > 0">
+          <div class="stat-item">
+            <span class="stat-label">{{ 'demos.angular.statsTotal' | translate }}:</span>
+            <span class="stat-value">{{ tasks().length }}</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">{{ 'demos.angular.statsPending' | translate }}:</span>
+            <span class="stat-value">{{ pendingTasks() }}</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">{{ 'demos.angular.statsCompleted' | translate }}:</span>
+            <span class="stat-value">{{ completedTasks() }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reactive Forms Demo -->
+    <div class="demo-section forms-section">
+      <h5>{{ 'demos.angular.formsTitle' | translate }}</h5>
+      <div class="reactive-forms-demo">
+        <form [formGroup]="reactiveForm" (ngSubmit)="submitReactiveForm()" class="reactive-form">
+          <div class="form-group">
+            <label for="email" class="form-label">{{ 'demos.angular.formLabels.email' | translate }}</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              class="form-input"
+              [placeholder]="'demos.angular.formPlaceholders.email' | translate">
+
+            <div class="field-errors" *ngIf="reactiveForm.get('email')?.invalid && reactiveForm.get('email')?.touched">
+              <small *ngIf="reactiveForm.get('email')?.errors?.['required']">Email é obrigatório</small>
+              <small *ngIf="reactiveForm.get('email')?.errors?.['email']">Email inválido</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="form-label">Senha</label>
+            <input
+              type="password"
+              id="password"
+              formControlName="password"
+              class="form-input"
+              placeholder="Digite sua senha">
+
+            <div class="field-errors" *ngIf="reactiveForm.get('password')?.invalid && reactiveForm.get('password')?.touched">
+              <small *ngIf="reactiveForm.get('password')?.errors?.['required']">Senha é obrigatória</small>
+              <small *ngIf="reactiveForm.get('password')?.errors?.['minlength']">Mínimo 8 caracteres</small>
+              <small *ngIf="reactiveForm.get('password')?.errors?.['pattern']">Deve conter letra e número</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword" class="form-label">Confirmar Senha</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              formControlName="confirmPassword"
+              class="form-input"
+              placeholder="Confirme sua senha">
+
+            <div class="field-errors" *ngIf="reactiveForm.get('confirmPassword')?.invalid && reactiveForm.get('confirmPassword')?.touched">
+              <small *ngIf="reactiveForm.get('confirmPassword')?.errors?.['required']">Confirmação é obrigatória</small>
+              <small *ngIf="reactiveForm.get('confirmPassword')?.errors?.['passwordMismatch']">Senhas não coincidem</small>
+            </div>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input
+                type="checkbox"
+                formControlName="agreeToTerms"
+                class="checkbox-input">
+              <span class="checkmark"></span>
+              Concordo com os termos de uso
+            </label>
+
+            <div class="field-errors" *ngIf="reactiveForm.get('agreeToTerms')?.invalid && reactiveForm.get('agreeToTerms')?.touched">
+              <small>Você deve aceitar os termos</small>
+            </div>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input
+                type="checkbox"
+                formControlName="newsletter"
+                class="checkbox-input">
+              <span class="checkmark"></span>
+              Receber newsletter semanal
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button
+              type="submit"
+              class="submit-btn"
+              [disabled]="reactiveForm.invalid">
+              <i class="pi pi-send"></i>
+              Cadastrar
+            </button>
+
+            <button
+              type="button"
+              class="reset-btn"
+              (click)="resetReactiveForm()">
+              <i class="pi pi-refresh"></i>
+              Limpar
+            </button>
+          </div>
+        </form>
+
+        <div class="form-status">
+          <div class="status-item">
+            <span class="status-label">Form válido:</span>
+            <span class="status-value" [class.valid]="reactiveForm.valid" [class.invalid]="!reactiveForm.valid">
+              {{ reactiveForm.valid ? 'Sim' : 'Não' }}
+            </span>
+          </div>
+          <div class="status-item">
+            <span class="status-label">Campos tocados:</span>
+            <span class="status-value">{{ getTouchedFieldsCount() }}</span>
+          </div>
+          <div class="status-item">
+            <span class="status-label">Campos sujos:</span>
+            <span class="status-value">{{ getDirtyFieldsCount() }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Messages -->
+  <div class="success-overlay" *ngIf="showTaskSuccess">
+    <div class="success-message">
+      <i class="pi pi-check-circle"></i>
+      <h5>Tarefa adicionada!</h5>
+      <p>{{ lastAddedTask }}</p>
+    </div>
+  </div>
+
+  <div class="success-overlay" *ngIf="showFormSuccess">
+    <div class="success-message">
+      <i class="pi pi-check-circle"></i>
+      <h5>Cadastro realizado!</h5>
+      <p>Formulário enviado com sucesso</p>
+    </div>
+  </div>
+</div>

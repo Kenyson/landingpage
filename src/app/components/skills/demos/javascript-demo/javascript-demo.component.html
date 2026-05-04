@@ -1,0 +1,47 @@
+<div class="js-demo">
+  <div class="demo-description">
+    <h5>{{ 'demos.javascript.title' | translate }}</h5>
+    <p>{{ 'demos.javascript.description' | translate }}</p>
+  </div>
+
+  <div class="demo-controls">
+    <input
+      type="text"
+      [(ngModel)]="jsInput"
+      [placeholder]="'demos.javascript.inputPlaceholder' | translate"
+      class="demo-input"
+      maxlength="2" />
+
+    <button
+      class="demo-btn"
+      (click)="calculateFibonacci()"
+      [disabled]="fibLoading">
+      <i class="pi pi-calculator"></i>
+      {{ fibLoading ? ('demos.javascript.calculating' | translate) : ('demos.javascript.calculate' | translate) }}
+    </button>
+  </div>
+
+  <div class="demo-result" *ngIf="fibResult !== null">
+    <div class="result-card">
+      <div class="result-icon">
+        <i class="pi pi-check-circle"></i>
+      </div>
+      <div class="result-content">
+        <h6>{{ 'demos.javascript.result' | translate }}</h6>
+        <p class="fibonacci-number">F({{ jsInput }}) = <strong>{{ fibResult }}</strong></p>
+        <small class="fibonacci-info">
+          {{ 'demos.javascript.sequence' | translate }}: {{ getFibonacciSequence(currentInputNumber) }}
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-examples">
+    <h6>{{ 'demos.javascript.examples' | translate }}:</h6>
+    <div class="examples-grid">
+      <div class="example-item" *ngFor="let example of fibonacciExamples">
+        <code>F({{ example.n }}) = {{ example.result }}</code>
+      </div>
+    </div>
+  </div>
+</div>

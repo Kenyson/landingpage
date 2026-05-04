@@ -1,0 +1,223 @@
+<div class="git-demo">
+      <div class="demo-header">
+        <h4>{{ 'demos.git.title' | translate }}</h4>
+        <p class="demo-description">
+          {{ 'demos.git.description' | translate }}
+        </p>
+      </div>
+
+      <div class="demo-content">
+        <!-- Workflow Steps -->
+        <div class="workflow-section">
+          <h5>{{ 'demos.git.workflowTitle' | translate }}</h5>
+          <div class="workflow-steps">
+            <div
+              class="step-item"
+              *ngFor="let step of workflowSteps(); let i = index"
+              [class.active]="currentStep() === i"
+              [class.completed]="step.completed"
+              (click)="setCurrentStep(i)">
+
+              <div class="step-icon" [class]="getStepIconClass(step)">
+                <i [class]="step.icon"></i>
+              </div>
+
+              <div class="step-content">
+                <h6>{{ step.title }}</h6>
+                <p>{{ step.description }}</p>
+              </div>
+
+              <div class="step-status">
+                <i class="pi pi-check" *ngIf="step.completed"></i>
+                <span *ngIf="!step.completed && currentStep() === i">Atual</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step Details -->
+          <div class="step-details" *ngIf="currentStep() >= 0">
+            <div class="step-detail-card">
+              <h6>{{ workflowSteps()[currentStep()].title }}</h6>
+              <div class="command-section">
+                <div class="command-label">Comando:</div>
+                <code class="command-code">{{ workflowSteps()[currentStep()].command }}</code>
+              </div>
+              <div class="output-section">
+                <div class="output-label">Saída:</div>
+                <pre class="output-code">{{ workflowSteps()[currentStep()].output }}</pre>
+              </div>
+              <div class="step-actions">
+                <button
+                  class="execute-btn"
+                  (click)="executeStep(currentStep())"
+                  [disabled]="workflowSteps()[currentStep()].completed">
+                  <i class="pi pi-play"></i>
+                  {{ workflowSteps()[currentStep()].completed ? 'Executado' : 'Executar' }}
+                </button>
+                <button
+                  class="next-btn"
+                  (click)="nextStep()"
+                  *ngIf="currentStep() < workflowSteps().length - 1">
+                  <i class="pi pi-chevron-right"></i>
+                  Próximo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Git Graph Visualization -->
+        <div class="graph-section">
+          <h5>Visualização do Repositório</h5>
+          <div class="git-graph">
+            <div class="branches">
+              <div
+                class="branch"
+                *ngFor="let branch of branches()"
+                [class.current]="branch.current"
+                [class.merged]="branch.merged">
+
+                <div class="branch-header">
+                  <span class="branch-name">{{ branch.name }}</span>
+                  <span class="branch-status" *ngIf="branch.current">(atual)</span>
+                  <span class="branch-status merged" *ngIf="branch.merged">(merged)</span>
+                </div>
+
+                <div class="commits">
+                  <div
+                    class="commit"
+                    *ngFor="let commit of branch.commits"
+                    [title]="commit">
+                    <div class="commit-dot"></div>
+                    <span class="commit-hash">{{ commit.substring(0, 7) }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="merge-point" *ngIf="showMergePoint()">
+              <div class="merge-line"></div>
+              <div class="merge-commit">
+                <div class="commit-dot merged"></div>
+                <span class="commit-hash">merge</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="graph-actions">
+            <button class="graph-btn" (click)="simulateWorkflow()">
+              <i class="pi pi-play-circle"></i>
+              Simular Workflow Completo
+            </button>
+            <button class="graph-btn secondary" (click)="resetWorkflow()">
+              <i class="pi pi-refresh"></i>
+              Reset
+            </button>
+          </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="practices-section">
+          <h5>Melhores Práticas</h5>
+          <div class="practices-grid">
+            <div class="practice-card">
+              <div class="practice-icon">
+                <i class="pi pi-check-circle"></i>
+              </div>
+              <div class="practice-content">
+                <h6>Commits Atômicos</h6>
+                <p>Cada commit deve conter apenas uma mudança lógica e ter uma mensagem descritiva.</p>
+              </div>
+            </div>
+
+            <div class="practice-card">
+              <div class="practice-icon">
+                <i class="pi pi-share-alt"></i>
+              </div>
+              <div class="practice-content">
+                <h6>Branch por Feature</h6>
+                <p>Use branches separadas para cada nova funcionalidade ou correção de bug.</p>
+              </div>
+            </div>
+
+            <div class="practice-card">
+              <div class="practice-icon">
+                <i class="pi pi-users"></i>
+              </div>
+              <div class="practice-content">
+                <h6>Code Review</h6>
+                <p>Sempre faça revisão de código através de Pull Requests antes de merge.</p>
+              </div>
+            </div>
+
+            <div class="practice-card">
+              <div class="practice-icon">
+                <i class="pi pi-clock"></i>
+              </div>
+              <div class="practice-content">
+                <h6>Commits Frequentes</h6>
+                <p>Faça commits pequenos e frequentes para manter o histórico limpo.</p>
+              </div>
+            </div>
+
+            <div class="practice-card">
+              <div class="practice-icon">
+                <i class="pi pi-tags"></i>
+              </div>
+              <div class="practice-content">
+                <h6>Versionamento</h6>
+                <p>Use tags para marcar releases e pontos importantes do projeto.</p>
+              </div>
+            </div>
+
+            <div class="practice-card">
+              <div class="practice-icon">
+                <i class="pi pi-shield"></i>
+              </div>
+              <div class="practice-content">
+                <h6>Proteção de Branches</h6>
+                <p>Proteja branches principais contra pushes diretos e force pushes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Common Commands -->
+        <div class="commands-section">
+          <h5>Comandos Essenciais</h5>
+          <div class="commands-grid">
+            <div class="command-group">
+              <h6>Configuração</h6>
+              <div class="command-item" *ngFor="let cmd of configCommands">
+                <code>{{ cmd.command }}</code>
+                <span class="command-desc">{{ cmd.description }}</span>
+              </div>
+            </div>
+
+            <div class="command-group">
+              <h6>Trabalho Diário</h6>
+              <div class="command-item" *ngFor="let cmd of dailyCommands">
+                <code>{{ cmd.command }}</code>
+                <span class="command-desc">{{ cmd.description }}</span>
+              </div>
+            </div>
+
+            <div class="command-group">
+              <h6>Branches</h6>
+              <div class="command-item" *ngFor="let cmd of branchCommands">
+                <code>{{ cmd.command }}</code>
+                <span class="command-desc">{{ cmd.description }}</span>
+              </div>
+            </div>
+
+            <div class="command-group">
+              <h6>Colaboração</h6>
+              <div class="command-item" *ngFor="let cmd of collabCommands">
+                <code>{{ cmd.command }}</code>
+                <span class="command-desc">{{ cmd.description }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,49 @@
+<div class="ts-demo">
+      <div class="demo-header">
+        <h4>{{ 'demos.typescript.title' | translate }}</h4>
+        <p class="demo-description">{{ 'demos.typescript.description' | translate }}</p>
+      </div>
+
+      <div class="type-selector">
+        <p>{{ 'demos.typescript.typeValidationPrompt' | translate }}</p>
+        <div class="type-buttons">
+          <button
+            class="type-btn"
+            [class.active]="selectedType === 'string'"
+            (click)="setType('string')">
+            {{ 'demos.typescript.typeLabels.string' | translate }}
+          </button>
+          <button
+            class="type-btn"
+            [class.active]="selectedType === 'number'"
+            (click)="setType('number')">
+            {{ 'demos.typescript.typeLabels.number' | translate }}
+          </button>
+          <button
+            class="type-btn"
+            [class.active]="selectedType === 'email'"
+            (click)="setType('email')">
+            {{ 'demos.typescript.typeLabels.email' | translate }}
+          </button>
+          <button
+            class="type-btn"
+            [class.active]="selectedType === 'boolean'"
+            (click)="setType('boolean')">
+            {{ 'demos.typescript.typeLabels.boolean' | translate }}
+          </button>
+        </div>
+      </div>
+
+      <div class="validation-demo">
+        <input
+          type="text"
+          [(ngModel)]="inputValue"
+          [placeholder]="('demos.typescript.inputPlaceholder' | translate) + ' ' + selectedType"
+          class="ts-input"
+          (input)="validateInput()" />
+
+        <div class="validation-result" [class]="getValidationClass()">
+          {{ validationMessage || ('demos.typescript.validationPrompt' | translate) }}
+        </div>
+      </div>
+    </div>

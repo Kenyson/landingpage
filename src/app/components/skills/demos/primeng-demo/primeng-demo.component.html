@@ -1,0 +1,299 @@
+<div class="primeng-demo">
+      <div class="demo-header">
+        <h4>PrimeNG - Componentes UI Profissionais</h4>
+        <p class="demo-description">
+          Explore a biblioteca mais completa de componentes Angular: 80+ componentes, theming avançado, acessibilidade e design moderno.
+        </p>
+      </div>
+
+      <div class="demo-content">
+        <!-- Theme Showcase -->
+        <div class="theme-section">
+          <h5>Tema Lara Dark Blue Customizado</h5>
+          <div class="theme-colors">
+            <div class="color-palette">
+              <div
+                class="color-item"
+                *ngFor="let color of themeColors"
+                [style.background-color]="color.value">
+
+                <div class="color-info">
+                  <span class="color-name">{{ color.name }}</span>
+                  <span class="color-value">{{ color.value }}</span>
+                  <span class="color-desc">{{ color.description }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="theme-features">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="pi pi-palette"></i>
+              </div>
+              <div class="feature-text">
+                <h6>Design System Consistente</h6>
+                <p>Cores, tipografia e espaçamentos harmoniosos</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="pi pi-moon"></i>
+              </div>
+              <div class="feature-text">
+                <h6>Tema Dark Nativo</h6>
+                <p>Otimizado para uso prolongado em ambientes escuros</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="pi pi-mobile"></i>
+              </div>
+              <div class="feature-text">
+                <h6>Responsive Design</h6>
+                <p>Componentes adaptáveis a todos os tamanhos de tela</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Components Showcase -->
+        <div class="components-section">
+          <h5>Componentes em Destaque no Portfolio</h5>
+          <div class="components-grid">
+            <div
+              class="component-card"
+              *ngFor="let component of featuredComponents"
+              [class]="component.category.toLowerCase()">
+
+              <div class="component-header">
+                <div class="component-icon">
+                  <i class="pi pi-box"></i>
+                </div>
+                <div class="component-info">
+                  <h6>{{ component.name }}</h6>
+                  <span class="category-badge">{{ component.category }}</span>
+                </div>
+              </div>
+
+              <p class="component-desc">{{ component.description }}</p>
+
+              <div class="component-usage">
+                <div class="usage-label">Uso no Portfolio:</div>
+                <code class="usage-code">{{ component.usage }}</code>
+              </div>
+
+              <div class="component-props" *ngIf="component.props.length > 0">
+                <div class="props-label">Propriedades principais:</div>
+                <div class="props-list">
+                  <span class="prop-tag" *ngFor="let prop of component.props">{{ prop }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Demo Components -->
+        <div class="live-demo-section">
+          <h5>Demonstrações Interativas</h5>
+
+          <!-- Button Demo -->
+          <div class="demo-item">
+            <h6>Botões com Variações</h6>
+            <div class="button-showcase">
+              <button class="demo-btn primary">
+                <i class="pi pi-check"></i>
+                Primary
+              </button>
+              <button class="demo-btn secondary">
+                <i class="pi pi-times"></i>
+                Secondary
+              </button>
+              <button class="demo-btn success">
+                <i class="pi pi-save"></i>
+                Success
+              </button>
+              <button class="demo-btn danger">
+                <i class="pi pi-trash"></i>
+                Danger
+              </button>
+              <button class="demo-btn rounded">
+                <i class="pi pi-user"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Progress Demo -->
+          <div class="demo-item">
+            <h6>Barras de Progresso</h6>
+            <div class="progress-showcase">
+              <div class="progress-item">
+                <label>JavaScript</label>
+                <div class="progress-bar">
+                  <div class="progress-fill js" [style.width.%]="95"></div>
+                </div>
+                <span class="progress-value">95%</span>
+              </div>
+              <div class="progress-item">
+                <label>TypeScript</label>
+                <div class="progress-bar">
+                  <div class="progress-fill ts" [style.width.%]="90"></div>
+                </div>
+                <span class="progress-value">90%</span>
+              </div>
+              <div class="progress-item">
+                <label>Angular</label>
+                <div class="progress-bar">
+                  <div class="progress-fill angular" [style.width.%]="85"></div>
+                </div>
+                <span class="progress-value">85%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Demo -->
+          <div class="demo-item">
+            <h6>Cards com Header Customizado</h6>
+            <div class="card-showcase">
+              <div class="demo-card">
+                <div class="card-header">
+                  <h5>Conhecimentos Técnicos</h5>
+                </div>
+                <div class="card-body">
+                  <p>Especialista em desenvolvimento frontend moderno com foco em Angular, TypeScript e práticas ágeis.</p>
+                  <div class="card-skills">
+                    <span class="skill-chip">Angular</span>
+                    <span class="skill-chip">TypeScript</span>
+                    <span class="skill-chip">RxJS</span>
+                    <span class="skill-chip">SCSS</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customization Examples -->
+        <div class="customization-section">
+          <h5>Exemplos de Customização CSS</h5>
+          <div class="customization-examples">
+            <div class="customization-item">
+              <h6>Botões com Gradiente</h6>
+              <div class="code-example">
+                <pre><code>.p-button {{"{"}}
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border: none !important;
+  color: white !important;
+  transition: all 0.3s ease !important;
+{{"}"}}
+
+.p-button:hover:not(:disabled) {{"{"}}
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
+{{"}"}}</code></pre>
+              </div>
+            </div>
+
+            <div class="customization-item">
+              <h6>Inputs com Tema Dark</h6>
+              <div class="code-example">
+                <pre><code>.p-inputtext {{"{"}}
+  background: #1a1a1a !important;
+  border: 1px solid #262626 !important;
+  color: #e5e5e5 !important;
+{{"}"}}
+
+.p-inputtext:focus {{"{"}}
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.2) !important;
+{{"}"}}</code></pre>
+              </div>
+            </div>
+
+            <div class="customization-item">
+              <h6>Progress Bars Customizadas</h6>
+              <div class="code-example">
+                <pre><code>.custom-progress .p-progressbar-value {{"{"}}
+  background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  border-radius: 6px !important;
+{{"}"}}
+
+.skill-card {{"{"}}
+  background: #1a1a1a !important;
+  border: 1px solid #262626 !important;
+  border-radius: 12px !important;
+{{"}"}}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Features Overview -->
+        <div class="features-overview">
+          <h5>Por que escolher PrimeNG?</h5>
+          <div class="features-grid">
+            <div class="overview-item">
+              <div class="overview-icon">
+                <i class="pi pi-shield"></i>
+              </div>
+              <div class="overview-content">
+                <h6>Acessibilidade WCAG</h6>
+                <p>Componentes totalmente acessíveis com suporte a leitores de tela e navegação por teclado</p>
+              </div>
+            </div>
+
+            <div class="overview-item">
+              <div class="overview-icon">
+                <i class="pi pi-globe"></i>
+              </div>
+              <div class="overview-content">
+                <h6>Suporte RTL</h6>
+                <p>Suporte completo a idiomas da direita para esquerda (árabe, hebraico)</p>
+              </div>
+            </div>
+
+            <div class="overview-item">
+              <div class="overview-icon">
+                <i class="pi pi-mobile"></i>
+              </div>
+              <div class="overview-content">
+                <h6>Touch Optimized</h6>
+                <p>Otimizado para dispositivos móveis com gestos e interações touch</p>
+              </div>
+            </div>
+
+            <div class="overview-item">
+              <div class="overview-icon">
+                <i class="pi pi-code"></i>
+              </div>
+              <div class="overview-content">
+                <h6>TypeScript First</h6>
+                <p>Escrito em TypeScript com tipagem completa e IntelliSense avançado</p>
+              </div>
+            </div>
+
+            <div class="overview-item">
+              <div class="overview-icon">
+                <i class="pi pi-palette"></i>
+              </div>
+              <div class="overview-content">
+                <h6>Theming Avançado</h6>
+                <p>Sistema de temas flexível com variáveis CSS e personalização completa</p>
+              </div>
+            </div>
+
+            <div class="overview-item">
+              <div class="overview-icon">
+                <i class="pi pi-refresh"></i>
+              </div>
+              <div class="overview-content">
+                <h6>Updates Frequentes</h6>
+                <p>Atualizações regulares com novos componentes e melhorias de performance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

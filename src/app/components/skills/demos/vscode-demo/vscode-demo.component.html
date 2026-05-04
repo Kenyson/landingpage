@@ -1,0 +1,207 @@
+<div class="vscode-demo">
+      <div class="demo-header">
+        <h4>{{ 'demos.vscode.title' | translate }}</h4>
+        <p class="demo-description">
+          {{ 'demos.vscode.description' | translate }}
+        </p>
+      </div>
+
+      <div class="demo-content">
+        <!-- Features Grid -->
+        <div class="features-section">
+          <h5>{{ 'demos.vscode.featuresTitle' | translate }}</h5>
+          <div class="features-grid">
+            <div
+              class="feature-card"
+              *ngFor="let feature of vscodeFeatures"
+              [class]="feature.category">
+
+              <div class="feature-icon">
+                <i [class]="feature.icon"></i>
+              </div>
+
+              <div class="feature-content">
+                <h6>{{ feature.title }}</h6>
+                <p>{{ feature.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extensions Showcase -->
+        <div class="extensions-section">
+          <h5>Extensões Essenciais para Angular</h5>
+          <div class="extensions-grid">
+            <div
+              class="extension-card"
+              *ngFor="let ext of essentialExtensions"
+              [class.recommended]="ext.recommended">
+
+              <div class="extension-header">
+                <div class="extension-icon">
+                  <i class="pi pi-puzzle-piece"></i>
+                </div>
+                <div class="extension-info">
+                  <h6>{{ ext.name }}</h6>
+                  <span class="publisher">{{ ext.publisher }}</span>
+                </div>
+                <div class="downloads" *ngIf="ext.downloads">
+                  <i class="pi pi-download"></i>
+                  {{ ext.downloads }}
+                </div>
+              </div>
+
+              <p class="extension-desc">{{ ext.description }}</p>
+
+              <div class="extension-tags">
+                <span class="tag">{{ ext.category }}</span>
+                <span class="tag recommended" *ngIf="ext.recommended">Recomendado</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Bindings -->
+        <div class="keybindings-section">
+          <h5>Atalhos de Teclado Essenciais</h5>
+          <div class="keybindings-list">
+            <div
+              class="keybinding-item"
+              *ngFor="let binding of keyBindings"
+              [class]="binding.category">
+
+              <div class="key-combination">
+                <kbd *ngFor="let key of binding.key.split('+')">{{ key }}</kbd>
+              </div>
+
+              <div class="binding-info">
+                <div class="command">{{ binding.command }}</div>
+                <div class="description">{{ binding.description }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings Configuration -->
+        <div class="settings-section">
+          <h5>Configurações Personalizadas</h5>
+          <div class="settings-tabs">
+            <div class="tab-buttons">
+              <button
+                class="tab-btn"
+                [class.active]="activeSettingsTab === 'user'"
+                (click)="setActiveTab('user')">
+                User Settings
+              </button>
+              <button
+                class="tab-btn"
+                [class.active]="activeSettingsTab === 'workspace'"
+                (click)="setActiveTab('workspace')">
+                Workspace Settings
+              </button>
+            </div>
+
+            <div class="tab-content">
+              <div class="settings-editor" *ngIf="activeSettingsTab === 'user'">
+                <div class="file-header">
+                  <span class="file-name">settings.json</span>
+                  <span class="file-path">User Settings</span>
+                </div>
+                <pre class="settings-code">{{ userSettings }}</pre>
+              </div>
+
+              <div class="settings-editor" *ngIf="activeSettingsTab === 'workspace'">
+                <div class="file-header">
+                  <span class="file-name">settings.json</span>
+                  <span class="file-path">Workspace Settings</span>
+                </div>
+                <pre class="settings-code">{{ workspaceSettings }}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workflow Steps -->
+        <div class="workflow-section">
+          <h5>Workflow de Desenvolvimento</h5>
+          <div class="workflow-steps">
+            <div class="workflow-step" *ngFor="let step of workflowSteps; let i = index">
+              <div class="step-number">{{ i + 1 }}</div>
+              <div class="step-content">
+                <h6>{{ step.title }}</h6>
+                <p>{{ step.description }}</p>
+              </div>
+              <div class="step-icon">
+                <i [class]="step.icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Productivity Tips -->
+        <div class="tips-section">
+          <h5>Dicas de Produtividade</h5>
+          <div class="tips-grid">
+            <div class="tip-card">
+              <div class="tip-icon">
+                <i class="pi pi-lightbulb"></i>
+              </div>
+              <div class="tip-content">
+                <h6>Command Palette</h6>
+                <p>Use Ctrl+Shift+P para acessar todos os comandos disponíveis rapidamente.</p>
+              </div>
+            </div>
+
+            <div class="tip-card">
+              <div class="tip-icon">
+                <i class="pi pi-search"></i>
+              </div>
+              <div class="tip-content">
+                <h6>Quick Open</h6>
+                <p>Ctrl+P abre arquivos rapidamente. Use @ para símbolos e # para linhas.</p>
+              </div>
+            </div>
+
+            <div class="tip-card">
+              <div class="tip-icon">
+                <i class="pi pi-code"></i>
+              </div>
+              <div class="tip-content">
+                <h6>Multi-Cursor</h6>
+                <p>Alt+Click para múltiplos cursores. Ctrl+D para selecionar próximas ocorrências.</p>
+              </div>
+            </div>
+
+            <div class="tip-card">
+              <div class="tip-icon">
+                <i class="pi pi-terminal"></i>
+              </div>
+              <div class="tip-content">
+                <h6>Terminal Integrado</h6>
+                <p>Ctrl+~ abre o terminal. Use para executar comandos sem sair do editor.</p>
+              </div>
+            </div>
+
+            <div class="tip-card">
+              <div class="tip-icon">
+                <i class="pi pi-git-branch"></i>
+              </div>
+              <div class="tip-content">
+                <h6>Git Integration</h6>
+                <p>Veja mudanças, faça commits e resolva conflitos diretamente no editor.</p>
+              </div>
+            </div>
+
+            <div class="tip-card">
+              <div class="tip-icon">
+                <i class="pi pi-bug"></i>
+              </div>
+              <div class="tip-content">
+                <h6>Debugging</h6>
+                <p>F9 para breakpoints, F5 para iniciar debug. Suporte completo a Node.js e browsers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
