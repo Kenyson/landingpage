@@ -1,31 +1,31 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { TranslatePipe } from '../translation.pipe';
-import { TranslationService } from '../translation.service';
 import { ThemeService } from '../theme.service';
-import { Language } from '../portfolio-translations';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule, TranslatePipe],
+  imports: [CommonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
   mobileMenuOpen = signal(false);
   langMenuOpen = signal(false);
+  activeSection = signal('home');
 
-  constructor(
-    public translationService: TranslationService,
-    public themeService: ThemeService
-  ) {
-    this.translationService.initializeLanguage();
+  private sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
+
+  constructor(public themeService: ThemeService) {
+    this.setupScrollSpy();
   }
 
   get currentTheme(): string {
     return this.themeService.currentTheme();
+  }
+
+  isSectionActive(section: string): boolean {
+    return this.activeSection() === section;
   }
 
   toggleMenu() {
@@ -39,30 +39,53 @@ export class HeaderComponent {
     this.mobileMenuOpen.set(false);
   }
 
-  toggleLangMenu() {
-    this.langMenuOpen.set(!this.langMenuOpen());
-  }
-
-  selectLanguage(lang: Language) {
-    this.translationService.setLanguage(lang);
-    this.langMenuOpen.set(false);
-  }
-
-  getCurrentFlag(): string {
-    const current = this.translationService.currentLanguage();
-    const lang = this.translationService.availableLanguages.find(l => l.code === current);
-    return lang ? lang.flag : '🇺🇸';
+  scrollToSection(sectionId: string) {
+    this.closeMenu();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 64;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - headerHeight,
+        behavior: 'smooth',
+      });
+    }
   }
 
   toggleTheme(): void {
     this.themeService.toggleTheme();
   }
 
-  getThemeLabel(): string {
-    // Get the current translations and return the appropriate label
-    const translations = this.translationService.currentLanguageData;
-    return this.themeService.currentTheme() === 'dark'
-      ? translations.theme.toggleLight
-      : translations.theme.toggleDark;
+  private setupScrollSpy() {
+    let ticking = false;
+    const updateActiveSection = () => {
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of this.sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const top = element.offsetTop;
+          const bottom = top + element.offsetHeight;
+
+          if (scrollPosition >= top && scrollPosition < bottom) {
+            this.activeSection.set(section);
+            break;
+          }
+        }
+      }
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateActiveSection();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll);
+    updateActiveSection();
   }
 }

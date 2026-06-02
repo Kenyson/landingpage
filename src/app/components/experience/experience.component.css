@@ -1,7 +1,5 @@
 .experience {
   padding: 6rem 0;
-  background: var(--color-surface);
-  transition: background 0.3s ease;
 }
 
 .timeline {

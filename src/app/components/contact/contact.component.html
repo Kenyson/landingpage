@@ -1,9 +1,16 @@
 <section id="contact" class="contact section">
+  <div class="contact-bg">
+    <div class="gradient-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+  </div>
   <div class="container">
-    <h2 class="section-title">{{ 'contact.title' | translate }}</h2>
+    <h2 class="section-title">Vamos Conversar</h2>
     <div class="contact-content">
       <div class="contact-info">
-        <h3>{{ 'contact.subtitle' | translate }}</h3>
+        <h3>Tem um projeto em mente? Vamos discutir como posso ajudar.</h3>
         <div class="contact-methods">
           <a [href]="'mailto:' + email" class="contact-method">
             <div class="icon">
@@ -13,7 +20,7 @@
               </svg>
             </div>
             <div class="details">
-              <span class="label">{{ 'contact.methods.email' | translate }}</span>
+              <span class="label">Email</span>
               <span class="value">{{ email }}</span>
             </div>
           </a>
@@ -24,7 +31,7 @@
               </svg>
             </div>
             <div class="details">
-              <span class="label">{{ 'contact.methods.phone' | translate }}</span>
+              <span class="label">Telefone</span>
               <span class="value">{{ phone }}</span>
             </div>
           </a>
@@ -35,7 +42,7 @@
               </svg>
             </div>
             <div class="details">
-              <span class="label">{{ 'contact.methods.github' | translate }}</span>
+              <span class="label">GitHub</span>
               <span class="value">@Kenyson</span>
             </div>
           </a>
@@ -44,20 +51,20 @@
       <div class="contact-form-wrapper">
         <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form">
           <div class="form-group">
-            <label for="name">{{ 'contact.form.name' | translate }}</label>
+            <label for="name">Nome</label>
             <input pInputText type="text" id="name" name="name" [(ngModel)]="formData.name" required placeholder="Digite seu nome" />
           </div>
           <div class="form-group">
-            <label for="emailForm">{{ 'contact.form.email' | translate }}</label>
+            <label for="emailForm">Email</label>
             <input pInputText type="email" id="emailForm" name="email" [(ngModel)]="formData.email" required placeholder="Digite seu email" />
           </div>
           <div class="form-group">
-            <label for="message">{{ 'contact.form.message' | translate }}</label>
+            <label for="message">Mensagem</label>
             <textarea pInputTextarea id="message" name="message" rows="5" [(ngModel)]="formData.message" required placeholder="Digite sua mensagem"></textarea>
           </div>
           <p-button
             type="submit"
-            [label]="!isSubmitting ? ('contact.form.send' | translate) : ('contact.form.sending' | translate)"
+            [label]="submitLabel"
             [disabled]="!contactForm.valid || isSubmitting"
             [loading]="isSubmitting"
             severity="primary"

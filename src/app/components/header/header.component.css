@@ -68,6 +68,10 @@
   color: #ffffff;
 }
 
+.nav-link:hover {
+  color: #3b82f6;
+}
+
 .nav-link::after {
   content: '';
   position: absolute;
@@ -79,11 +83,8 @@
   transition: width 0.3s ease;
 }
 
-.nav-link:hover {
-  color: #3b82f6;
-}
-
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
 }
 

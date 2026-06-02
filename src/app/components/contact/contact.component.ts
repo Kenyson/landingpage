@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TranslatePipe } from '../translation.pipe';
 import { InputTextModule } from 'primeng/inputtext';
 import { TextareaModule } from 'primeng/textarea';
 import { ButtonModule } from 'primeng/button';
@@ -9,9 +8,9 @@ import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, TranslatePipe, InputTextModule, TextareaModule, ButtonModule],
+  imports: [CommonModule, FormsModule, InputTextModule, TextareaModule, ButtonModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css'
+  styleUrl: './contact.component.css',
 })
 export class ContactComponent {
   email = 'kenysonoliveira@gmail.com';
@@ -26,12 +25,16 @@ export class ContactComponent {
 
   isSubmitting = false;
 
+  get submitLabel(): string {
+    return this.isSubmitting ? 'Enviando...' : 'Enviar Mensagem';
+  }
+
   onSubmit() {
     if (this.formData.name && this.formData.email && this.formData.message) {
       this.isSubmitting = true;
 
       setTimeout(() => {
-        alert(`Thank you, ${this.formData.name}! Your message has been received. I'll get back to you at ${this.formData.email} soon.`);
+        alert(`Obrigado, ${this.formData.name}! Sua mensagem foi recebida. Entrarei em contato em ${this.formData.email} em breve.`);
         this.formData = { name: '', email: '', message: '' };
         this.isSubmitting = false;
       }, 1500);
