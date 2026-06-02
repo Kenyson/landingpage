@@ -14,7 +14,7 @@ export class HeaderComponent {
   langMenuOpen = signal(false);
   activeSection = signal('home');
 
-  private sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
+  private sections = ['home', 'about', 'skills2', 'experience', 'projects', 'contact'];
 
   constructor(public themeService: ThemeService) {
     this.setupScrollSpy();
