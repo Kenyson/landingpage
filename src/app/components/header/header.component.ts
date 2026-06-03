@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../theme.service';
+import { TranslationService } from '../translation.service';
 
 @Component({
   selector: 'app-header',
@@ -16,8 +17,9 @@ export class HeaderComponent {
 
   private sections = ['home', 'about', 'skills2', 'experience', 'projects', 'contact'];
 
-  constructor(public themeService: ThemeService) {
+  constructor(public themeService: ThemeService, public translationService: TranslationService) {
     this.setupScrollSpy();
+    this.translationService.initializeLanguage();
   }
 
   get currentTheme(): string {
@@ -54,6 +56,15 @@ export class HeaderComponent {
 
   toggleTheme(): void {
     this.themeService.toggleTheme();
+  }
+
+  toggleLangMenu(): void {
+    this.langMenuOpen.set(!this.langMenuOpen());
+  }
+
+  setLanguage(langCode: string): void {
+    this.translationService.setLanguage(langCode as any);
+    this.langMenuOpen.set(false);
   }
 
   private setupScrollSpy() {

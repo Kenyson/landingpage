@@ -2,12 +2,12 @@
   <div class="container">
     <div class="footer-content">
       <div class="footer-brand">
-        <h3>Kenyson Oliveira</h3>
-        <p>Desenvolvedor Front-End especializado em Angular.</p>
+        <h3>{{ 'footer.brand' | translate }}</h3>
+        <p>{{ 'footer.tagline' | translate }}</p>
       </div>
 
       <div class="footer-social">
-        <h4>Conectar</h4>
+        <h4>{{ 'footer.connect' | translate }}</h4>
         <div class="social-icons">
           <a [href]="githubUrl" target="_blank" rel="noopener" aria-label="GitHub">
             <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
@@ -25,7 +25,7 @@
     </div>
     <div class="footer-bottom">
       <p>&copy; 2024 Kenyson Oliveira Loureiro. All rights reserved.</p>
-      <p class="built-with">Desenvolvido com Angular & TailwindCSS</p>
+      <p class="built-with">{{ 'footer.builtWith' | translate }}</p>
     </div>
   </div>
 </footer>

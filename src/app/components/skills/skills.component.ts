@@ -40,15 +40,12 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './skills.component.css'
 })
 export class SkillsComponent {
-  // Data from separate file
   skills: SkillDemo[] = SKILLS_DATA;
 
-  // UI state
   selectedSkill: SkillDemo | null = null;
   exampleModalVisible = false;
   selectedExample: { title: string; description: string; code?: string; readme?: { objective: string; prerequisites: string; howToRun: string; tips: string } } | null = null;
 
-  // Computed properties
   skillCategories = [
     { name: 'Languages', key: 'Languages' },
     { name: 'Frontend Frameworks', key: 'Frontend' },
@@ -88,7 +85,6 @@ export class SkillsComponent {
     return projects[skillName as keyof typeof projects] || [];
   }
 
-  // Skill selection methods
   selectSkill(skill: SkillDemo) {
     this.selectedSkill = skill;
   }

@@ -23,22 +23,22 @@
     </div>
 
     <div class="hero-text">
-      <p class="greeting">Olá, eu sou</p>
-      <h1 class="name">Kenyson Oliveira</h1>
-      <h2 class="title">Desenvolvedor Front-End</h2>
+      <p class="greeting">{{ 'home.greeting' | translate }}</p>
+      <h1 class="name">{{ 'home.name' | translate }}</h1>
+      <h2 class="title">{{ 'home.title' | translate }}</h2>
       <p class="tagline">
-        Especialista em Angular, criando experiências digitais incríveis.
+        {{ 'home.tagline' | translate }}
       </p>
       <div class="cta-buttons">
         <p-button
           (onClick)="scrollToSection('contact')"
-          label="Vamos Conversar"
+          [label]="'home.ctaTouch' | translate"
           severity="primary"
           size="large">
         </p-button>
         <p-button
           (onClick)="scrollToSection('projects')"
-          label="Ver Projetos"
+          [label]="'home.ctaProjects' | translate"
           severity="secondary"
           variant="outlined"
           size="large">
@@ -48,7 +48,7 @@
   </div>
 
   <div class="scroll-indicator">
-    <span>Rolar para baixo</span>
+    <span>{{ 'home.scroll' | translate }}</span>
     <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
       <path d="M12 5v14M5 12l7 7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>

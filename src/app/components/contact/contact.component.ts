@@ -4,15 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { TextareaModule } from 'primeng/textarea';
 import { ButtonModule } from 'primeng/button';
+import { TranslatePipe } from '../translation.pipe';
+import { TranslationService } from '../translation.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, InputTextModule, TextareaModule, ButtonModule],
+  imports: [CommonModule, FormsModule, InputTextModule, TextareaModule, ButtonModule, TranslatePipe],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css',
 })
 export class ContactComponent {
+  constructor(public translationService: TranslationService) {}
   email = 'kenysonoliveira@gmail.com';
   phone = '+39 392 887 6051';
   githubUrl = 'https://github.com/Kenyson';
@@ -26,7 +29,7 @@ export class ContactComponent {
   isSubmitting = false;
 
   get submitLabel(): string {
-    return this.isSubmitting ? 'Enviando...' : 'Enviar Mensagem';
+    return this.isSubmitting ? this.translationService.translate('contact.form.sending') : this.translationService.translate('contact.form.send');
   }
 
   onSubmit() {
@@ -34,7 +37,7 @@ export class ContactComponent {
       this.isSubmitting = true;
 
       setTimeout(() => {
-        alert(`Obrigado, ${this.formData.name}! Sua mensagem foi recebida. Entrarei em contato em ${this.formData.email} em breve.`);
+        alert(this.translationService.translate('contact.success', { name: this.formData.name, email: this.formData.email }));
         this.formData = { name: '', email: '', message: '' };
         this.isSubmitting = false;
       }, 1500);

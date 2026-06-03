@@ -27,6 +27,22 @@
       </li>
     </ul>
     <div class="nav-actions">
+      <div class="language-switcher">
+        <button class="lang-btn" (click)="toggleLangMenu()" aria-label="Change language">
+          <span class="lang-flag">{{ translationService.availableLanguages.find(l => l.code === translationService.currentLanguage())?.flag }}</span>
+          <span class="lang-code">{{ translationService.currentLanguage().toUpperCase() }}</span>
+          <span class="arrow" [class.open]="langMenuOpen()">▾</span>
+        </button>
+        <ul class="lang-menu" [class.active]="langMenuOpen()">
+          <li *ngFor="let lang of translationService.availableLanguages" 
+              class="lang-option"
+              [class.active]="translationService.currentLanguage() === lang.code"
+              (click)="setLanguage(lang.code)">
+            <span class="lang-flag">{{ lang.flag }}</span>
+            <span class="lang-name">{{ lang.name }}</span>
+          </li>
+        </ul>
+      </div>
       <div class="theme-toggle">
         <button
           class="theme-btn"
