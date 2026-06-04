@@ -1,5 +1,6 @@
-<section id="projects" class="projects section slide-from-left" appSlideAnimation="left">
-  <div class="container">
+<section id="projects" class="projects section">
+  <div appSlideAnimation="left">
+    <div class="container">
     <h2 class="section-title">{{ 'projects.title' | translate }}</h2>
     <div class="projects-grid">
       @for (project of projects; track project.title) {
@@ -45,5 +46,6 @@
         </div>
       }
     </div>
+  </div>
   </div>
 </section>

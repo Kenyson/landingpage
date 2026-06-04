@@ -148,11 +148,11 @@ body {
 }
 
 .slide-from-left {
-  transform: translateX(-200px);
+  transform: translateX(-400px);
 }
 
 .slide-from-right {
-  transform: translateX(200px);
+  transform: translateX(400px);
 }
 
 .slide-from-left.animate-in,

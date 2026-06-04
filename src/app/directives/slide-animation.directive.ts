@@ -12,11 +12,12 @@ export class SlideAnimationDirective implements OnInit, OnDestroy {
     const rect = el.getBoundingClientRect();
     const visible = rect.top < window.innerHeight - 100 && rect.bottom > 100;
     if (visible) {
-      el.classList.add('animate-in');
-      el.classList.remove('animate-out');
+      el.style.transform = '';
+      el.style.opacity = '1';
     } else {
-      el.classList.remove('animate-in');
-      el.classList.add('animate-out');
+      const offset = this.slideDirection === 'left' ? '-500px' : '500px';
+      el.style.transform = `translateX(${offset})`;
+      el.style.opacity = '0';
     }
   };
 
@@ -24,7 +25,8 @@ export class SlideAnimationDirective implements OnInit, OnDestroy {
 
   ngOnInit() {
     const el = this.el.nativeElement;
-    el.classList.add('slide-from-' + this.slideDirection);
+    el.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    el.style.willChange = 'transform, opacity';
     window.addEventListener('scroll', this.onScroll, { passive: true });
     requestAnimationFrame(() => requestAnimationFrame(() => this.onScroll()));
   }
