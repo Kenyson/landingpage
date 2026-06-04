@@ -632,11 +632,11 @@ export class ReactiveDemoComponent {
           tips: 'Utilitários Flexbox permitem layouts complexos sem CSS customizado. Combine com classes de cor e espaçamento para interfaces ricas rapidamente.'
         }
       }
-    ]
-  },
+]
+   },
 
-  // Tools
-  {
+   // Tools
+   {
     name: 'skills.items.primeng.name',
     category: 'Tools',
     icon: 'pi pi-desktop',

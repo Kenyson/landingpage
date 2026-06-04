@@ -688,7 +688,7 @@ export const translations: Record<Language, Translations> = {
       viewCode: 'Ver Código',
       items: {
         medicalSystem: {
-          title: 'Sistema de Prescrição Médica',
+          title: 'PMS - Prescription Management System',
           description: 'Projeto universitário - Uma aplicação abrangente de gerenciamento de prescrições com autenticação de usuário, permitindo que médicos criem, gerenciem e acompanhem prescrições de pacientes com segurança.'
         },
         duimpInterface: {
@@ -1188,7 +1188,7 @@ export const translations: Record<Language, Translations> = {
       viewCode: 'View Code',
       items: {
         medicalSystem: {
-          title: 'Medical Prescription System',
+          title: 'PMS - Prescription Management System',
           description: 'University project - A comprehensive prescription management application with user authentication, allowing doctors to create, manage, and track patient prescriptions securely.'
         },
         duimpInterface: {
@@ -1688,7 +1688,7 @@ export const translations: Record<Language, Translations> = {
       viewCode: 'Vedi Codice',
       items: {
         medicalSystem: {
-          title: 'Sistema di Prescrizione Medica',
+          title: 'PMS - Prescription Management System',
           description: 'Progetto universitario - Un\'applicazione completa di gestione delle prescrizioni con autenticazione utente, che permette ai medici di creare, gestire e tracciare le prescrizioni dei pazienti in sicurezza.'
         },
         duimpInterface: {

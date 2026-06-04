@@ -94,6 +94,27 @@
   gap: 1rem;
 }
 
+.resume-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  color: #a3a3a3;
+  text-decoration: none;
+}
+
+.resume-btn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  transform: scale(1.05);
+  color: #60a5fa;
+}
+
 .theme-toggle {
   position: relative;
 }

@@ -11,10 +11,16 @@
     <div class="projects-grid">
       @for (project of projects; track project.title) {
         <div class="project-card">
-          <div class="project-image placeholder">
-            <div class="placeholder-content">
-              <span class="code-icon">{{ '{ }' }}</span>
-            </div>
+          <div class="project-image">
+            @if (project.image) {
+              <img [src]="project.image" [alt]="project.title" style="width:100%;height:100%;object-fit:cover;">
+            } @else {
+              <div class="placeholder">
+                <div class="placeholder-content">
+                  <span class="code-icon">{{ '{ }' }}</span>
+                </div>
+              </div>
+            }
           </div>
           <div class="project-content">
             <h3 class="project-title">{{ project.title }}</h3>
@@ -32,6 +38,14 @@
                   </svg>
                   {{ 'projects.viewCode' | translate }}
                 </a>
+                @if (project.demo) {
+                  <a [href]="project.demo" target="_blank" rel="noopener" class="link demo-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    {{ 'projects.viewProject' | translate }}
+                  </a>
+                }
               </div>
             }
           </div>

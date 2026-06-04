@@ -27,6 +27,10 @@
       </li>
     </ul>
     <div class="nav-actions">
+      <a href="assets/resume.docx" class="resume-btn" download aria-label="Download Resume">
+        <i class="pi pi-download"></i>
+        <span>Currículo</span>
+      </a>
       <div class="language-switcher">
         <button class="lang-btn" (click)="toggleLangMenu()" aria-label="Change language">
           <span class="lang-flag">{{ translationService.availableLanguages.find(l => l.code === translationService.currentLanguage())?.flag }}</span>

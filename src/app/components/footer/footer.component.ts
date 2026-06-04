@@ -12,4 +12,5 @@ import { TranslatePipe } from '../translation.pipe';
 })
 export class FooterComponent {
   githubUrl = 'https://github.com/Kenyson';
+  linkedinUrl = 'https://www.linkedin.com/in/kenyson-oliveira-loureiro-80a48a222';
 }
