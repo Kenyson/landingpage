@@ -184,6 +184,7 @@ export interface Translations {
     title: string;
     viewProject: string;
     viewCode: string;
+    viewDemo: string;
     items: {
       medicalSystem: {
         title: string;
@@ -682,11 +683,12 @@ export const translations: Record<Language, Translations> = {
       present: 'Presente',
       internship: 'Estágio'
     },
-    projects: {
-      title: 'Meus Projetos',
-      viewProject: 'Ver Projeto',
-      viewCode: 'Ver Código',
-      items: {
+projects: {
+       title: 'Meus Projetos',
+       viewProject: 'Ver Projeto',
+       viewCode: 'Ver Código',
+       viewDemo: 'Ver Demo',
+       items: {
         medicalSystem: {
           title: 'PMS - Prescription Management System',
           description: 'Projeto universitário - Uma aplicação abrangente de gerenciamento de prescrições com autenticação de usuário, permitindo que médicos criem, gerenciem e acompanhem prescrições de pacientes com segurança.'
@@ -1182,11 +1184,12 @@ export const translations: Record<Language, Translations> = {
       present: 'Present',
       internship: 'Internship'
     },
-    projects: {
-      title: 'My Projects',
-      viewProject: 'View Project',
-      viewCode: 'View Code',
-      items: {
+projects: {
+       title: 'My Projects',
+       viewProject: 'View Project',
+       viewCode: 'View Code',
+       viewDemo: 'View Demo',
+       items: {
         medicalSystem: {
           title: 'PMS - Prescription Management System',
           description: 'University project - A comprehensive prescription management application with user authentication, allowing doctors to create, manage, and track patient prescriptions securely.'
@@ -1682,11 +1685,12 @@ export const translations: Record<Language, Translations> = {
       present: 'Presente',
       internship: 'Stage'
     },
-    projects: {
-      title: 'I Miei Progetti',
-      viewProject: 'Vedi Progetto',
-      viewCode: 'Vedi Codice',
-      items: {
+projects: {
+       title: 'I Miei Progetti',
+       viewProject: 'Vedi Progetto',
+       viewCode: 'Vedi Codice',
+       viewDemo: 'Vedi Demo',
+       items: {
         medicalSystem: {
           title: 'PMS - Prescription Management System',
           description: 'Progetto universitario - Un\'applicazione completa di gestione delle prescrizioni con autenticazione utente, che permette ai medici di creare, gestire e tracciare le prescrizioni dei pazienti in sicurezza.'
