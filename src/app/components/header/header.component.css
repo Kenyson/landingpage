@@ -2,12 +2,20 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  right: 0;
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
   background: rgba(17, 17, 17, 0.95);
-  backdrop-filter: blur(10px);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   transition: background 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.header.light-theme {
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%) !important;
+  box-shadow: 0 2px 20px rgba(30, 64, 175, 0.4) !important;
 }
 
 .header.light-theme {
@@ -20,6 +28,8 @@
   justify-content: space-between;
   align-items: center;
   height: 70px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .nav-logo {
@@ -68,6 +78,15 @@
   color: #ffffff;
 }
 
+[data-theme="light"] .header .nav-link {
+  color: #e0f2fe;
+}
+
+[data-theme="light"] .header .nav-link:hover,
+[data-theme="light"] .header .nav-link.active {
+  color: #ffffff;
+}
+
 .nav-link:hover {
   color: #3b82f6;
 }
@@ -92,6 +111,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-shrink: 0;
 }
 
 .resume-btn {
@@ -111,7 +131,6 @@
 
 .resume-btn:hover {
   background: rgba(59, 130, 246, 0.2);
-  transform: scale(1.05);
   color: #60a5fa;
 }
 
@@ -130,18 +149,15 @@
   color: #a3a3a3;
 }
 
-[data-theme="light"] .theme-btn {
-  color: #1e293b;
-}
-
 .theme-btn:hover {
   background: rgba(139, 92, 246, 0.2);
-  transform: scale(1.05);
   color: #8b5cf6;
 }
 
 .language-switcher {
   position: relative;
+  z-index: 1001;
+  transform: translateZ(0);
 }
 
 .lang-btn {
@@ -160,7 +176,6 @@
 
 .lang-btn:hover {
   background: rgba(59, 130, 246, 0.2);
-  transform: scale(1.05);
 }
 
 .lang-flag {
@@ -192,7 +207,7 @@
   padding: 0.5rem;
   min-width: 140px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  z-index: 1001;
+  z-index: 2147483647 !important;
   list-style: none;
   margin: 0;
   opacity: 0;
@@ -205,6 +220,16 @@
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+.lang-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-menu.lang-menu-mobile {
+  position: absolute !important;
 }
 
 .lang-option {
@@ -232,13 +257,103 @@
   color: #60a5fa;
 }
 
-[data-theme="light"] .lang-btn {
-  color: #374151;
+@media (max-width: 768px) {
+  .nav.container {
+    padding: 0 0.5rem !important;
+    max-width: 100% !important;
+    flex-wrap: nowrap;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-actions {
+    gap: 0.4rem !important;
+    flex-shrink: 0;
+  }
+
+  .resume-btn,
+  .theme-btn,
+  .lang-btn {
+    width: 38px !important;
+    height: 34px !important;
+    min-width: 38px !important;
+    padding: 0 0.3rem !important;
+    font-size: 0.85rem !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .resume-btn span.btn-text,
+  .lang-code,
+  .arrow {
+    display: none !important;
+  }
+
+  .lang-flag {
+    font-size: 1rem !important;
+  }
+
+  .resume-btn i,
+  .theme-btn i {
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+  }
 }
 
-[data-theme="light"] .lang-btn:hover {
-  background: rgba(59, 130, 246, 0.2);
-  color: #1e293b;
+[data-theme="light"] .header .resume-btn,
+[data-theme="light"] .header .theme-btn,
+[data-theme="light"] .header .lang-btn,
+.header.light-theme .resume-btn,
+.header.light-theme .theme-btn,
+.header.light-theme .lang-btn {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+[data-theme="light"] .header .resume-btn,
+[data-theme="light"] .resume-btn,
+.header.light-theme .resume-btn {
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .header .resume-btn span.btn-text,
+[data-theme="light"] .header .resume-btn i,
+[data-theme="light"] .resume-btn span.btn-text,
+[data-theme="light"] .resume-btn i,
+.header.light-theme .resume-btn span.btn-text,
+.header.light-theme .resume-btn i {
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .header .theme-btn i,
+[data-theme="light"] .theme-btn i,
+.header.light-theme .theme-btn,
+.header.light-theme .theme-btn i {
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .header .lang-btn,
+[data-theme="light"] .lang-btn,
+.header.light-theme .lang-btn {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+[data-theme="light"] .header .lang-flag,
+[data-theme="light"] .lang-flag,
+.header.light-theme .lang-flag {
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .header .lang-code,
+[data-theme="light"] .lang-code,
+.header.light-theme .lang-code,
+[data-theme="light"] .header .arrow,
+[data-theme="light"] .arrow,
+.header.light-theme .arrow {
+  color: #ffffff !important;
 }
 
 [data-theme="light"] .lang-menu {
@@ -261,62 +376,16 @@
   color: #1e40af;
 }
 
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
+[data-theme="light"] .lang-option {
+  color: #374151;
 }
 
-.bar {
-  width: 25px;
-  height: 3px;
-  background: #a3a3a3;
-  border-radius: 2px;
-  transition: all 0.3s ease;
+[data-theme="light"] .lang-option:hover {
+  background: rgba(59, 130, 246, 0.2);
+  color: #0f172a;
 }
 
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 70px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 70px);
-    background: #111111;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 2rem;
-    transition: left 0.3s ease, background 0.3s ease;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
-  }
-
-  .header.light-theme .nav-menu {
-    background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%) !important;
-    box-shadow: 2px 0 10px rgba(30, 64, 175, 0.4) !important;
-  }
-
-  .nav-menu.active {
-    left: 0;
-  }
-
-  .nav-item {
-    margin: 1rem 0;
-  }
-
-  .nav-link {
-    font-size: 1.1rem;
-  }
-
-  .nav-actions {
-    gap: 0.5rem;
-  }
+[data-theme="light"] .lang-option.active {
+  background: rgba(59, 130, 246, 0.3);
+  color: #1e40af;
 }

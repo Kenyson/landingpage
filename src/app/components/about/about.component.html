@@ -34,23 +34,23 @@
               <span class="value">Portoghese (Madrelingua), Italiano (Fluente), Inglese (Avanzato)</span>
             </div>
           </div>
-<div class="education">
-             <h3>{{ 'about.education.title' | translate }}</h3>
-             <p>
-<strong>{{ 'about.education.degree' | translate }}</strong><br>
-                {{ 'about.education.university' | translate }}<br>
-                {{ 'about.education.date' | translate }}<br>
-                {{ 'about.education.dateComplete' | translate }}
-             </p>
-           </div>
-           <div class="soft-skills">
-             <h3>{{ 'about.softSkills.title' | translate }}</h3>
-             <div class="skills-grid">
-               @for (skill of getSkills(); track skill) {
-                 <span class="soft-skill-tag">{{ skill }}</span>
-               }
-             </div>
-           </div>
+          <div class="education">
+            <h3>{{ 'about.education.title' | translate }}</h3>
+            <p>
+              <strong>{{ 'about.education.degree' | translate }}</strong><br>
+              {{ 'about.education.university' | translate }}<br>
+              {{ 'about.education.date' | translate }}<br>
+              {{ 'about.education.dateComplete' | translate }}
+            </p>
+          </div>
+          <div class="soft-skills">
+            <h3>{{ 'about.softSkills.title' | translate }}</h3>
+            <div class="skills-grid">
+              @for (skill of getSkills(); track skill) {
+                <span class="soft-skill-tag">{{ skill }}</span>
+              }
+            </div>
+          </div>
         </div>
       </div>
     </div>

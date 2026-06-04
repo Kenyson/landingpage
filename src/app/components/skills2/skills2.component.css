@@ -47,11 +47,17 @@
 }
 
 .skill-item:hover {
-  background: var(--color-surface-alt);
-  border-color: var(--color-primary);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
+   background: var(--color-surface-alt);
+   border-color: var(--color-primary);
+   transform: translateY(-5px);
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+ }
+
+ @media (max-width: 768px) {
+    .skill-item:hover {
+      transform: none;
+    }
+ }
 
 .skill-icon {
   font-size: 2.5rem;

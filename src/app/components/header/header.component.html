@@ -3,31 +3,31 @@
     <a href="#home" class="nav-logo">
       <span class="logo-text">Kenyson</span>
     </a>
-<ul class="nav-menu" [class.active]="mobileMenuOpen()">
-       <li class="nav-item">
-         <a href="#home" class="nav-link" [class.active]="isSectionActive('home')" (click)="scrollToSection('home')">{{ 'menu.home' | translate }}</a>
-       </li>
-       <li class="nav-item">
-         <a href="#about" class="nav-link" [class.active]="isSectionActive('about')" (click)="scrollToSection('about')">{{ 'menu.about' | translate }}</a>
-       </li>
-       <li class="nav-item">
-         <a href="#skills2" class="nav-link" [class.active]="isSectionActive('skills2')" (click)="scrollToSection('skills2')">{{ 'menu.skills' | translate }}</a>
-       </li>
-       <li class="nav-item">
-         <a href="#experience" class="nav-link" [class.active]="isSectionActive('experience')" (click)="scrollToSection('experience')">{{ 'menu.experience' | translate }}</a>
-       </li>
-       <li class="nav-item">
-         <a href="#projects" class="nav-link" [class.active]="isSectionActive('projects')" (click)="scrollToSection('projects')">{{ 'menu.projects' | translate }}</a>
-       </li>
-       <li class="nav-item">
-         <a href="#contact" class="nav-link" [class.active]="isSectionActive('contact')" (click)="scrollToSection('contact')">{{ 'menu.contact' | translate }}</a>
-       </li>
-     </ul>
+    <ul class="nav-menu" [class.active]="mobileMenuOpen()">
+      <li class="nav-item">
+        <a href="#home" class="nav-link" [class.active]="isSectionActive('home')" (click)="scrollToSection('home')">{{ 'menu.home' | translate }}</a>
+      </li>
+      <li class="nav-item">
+        <a href="#about" class="nav-link" [class.active]="isSectionActive('about')" (click)="scrollToSection('about')">{{ 'menu.about' | translate }}</a>
+      </li>
+      <li class="nav-item">
+        <a href="#skills2" class="nav-link" [class.active]="isSectionActive('skills2')" (click)="scrollToSection('skills2')">{{ 'menu.skills' | translate }}</a>
+      </li>
+      <li class="nav-item">
+        <a href="#experience" class="nav-link" [class.active]="isSectionActive('experience')" (click)="scrollToSection('experience')">{{ 'menu.experience' | translate }}</a>
+      </li>
+      <li class="nav-item">
+        <a href="#projects" class="nav-link" [class.active]="isSectionActive('projects')" (click)="scrollToSection('projects')">{{ 'menu.projects' | translate }}</a>
+      </li>
+      <li class="nav-item">
+        <a href="#contact" class="nav-link" [class.active]="isSectionActive('contact')" (click)="scrollToSection('contact')">{{ 'menu.contact' | translate }}</a>
+      </li>
+    </ul>
     <div class="nav-actions">
-<a href="assets/resume.docx" class="resume-btn" download>
-         <i class="pi pi-download"></i>
-         <span>{{ 'header.resume' | translate }}</span>
-       </a>
+      <a href="assets/resume.docx" class="resume-btn" download>
+        <i class="pi pi-download"></i>
+        <span class="btn-text">{{ 'header.resume' | translate }}</span>
+      </a>
       <div class="language-switcher">
         <button class="lang-btn" (click)="toggleLangMenu()" aria-label="Change language">
           <span class="lang-flag">{{ translationService.availableLanguages.find(l => l.code === translationService.currentLanguage())?.flag }}</span>
@@ -35,7 +35,7 @@
           <span class="arrow" [class.open]="langMenuOpen()">▾</span>
         </button>
         <ul class="lang-menu" [class.active]="langMenuOpen()">
-          <li *ngFor="let lang of translationService.availableLanguages" 
+          <li *ngFor="let lang of translationService.availableLanguages"
               class="lang-option"
               [class.active]="translationService.currentLanguage() === lang.code"
               (click)="setLanguage(lang.code)">
@@ -45,17 +45,12 @@
         </ul>
       </div>
       <div class="theme-toggle">
-<button
-           class="theme-btn"
-           (click)="toggleTheme()">
-           <i [class]="themeService.getThemeIcon()"></i>
-         </button>
+        <button
+          class="theme-btn"
+          (click)="toggleTheme()">
+          <i [class]="themeService.getThemeIcon()"></i>
+        </button>
       </div>
-      <button class="hamburger" (click)="toggleMenu()" aria-label="Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
     </div>
   </nav>
 </header>

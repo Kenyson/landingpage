@@ -1,9 +1,18 @@
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+   gap: 2rem;
+   margin-top: 3rem;
+ }
+
+ .project-card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+ }
+
+ [data-theme="light"] .project-card:hover {
+   transform: none;
+ }
 
 .project-card {
   background: var(--color-surface);

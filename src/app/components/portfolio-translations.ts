@@ -9,6 +9,9 @@ export interface Translations {
     projects: string;
     contact: string;
   };
+  header: {
+    resume: string;
+  };
   home: {
     greeting: string;
     name: string;
@@ -32,6 +35,11 @@ export interface Translations {
       degree: string;
       university: string;
       date: string;
+      dateComplete: string;
+    };
+    softSkills: {
+      title: string;
+      items: string[];
     };
   };
   skills: {
@@ -179,6 +187,22 @@ export interface Translations {
     title: string;
     present: string;
     internship: string;
+    items: {
+      nttData: {
+        role: string;
+        company: string;
+        location: string;
+        period: string;
+        responsibilities: string[];
+      };
+      conexosIntern: {
+        role: string;
+        company: string;
+        location: string;
+        period: string;
+        responsibilities: string[];
+      };
+    };
   };
   projects: {
     title: string;
@@ -425,6 +449,9 @@ export const translations: Record<Language, Translations> = {
       projects: 'Projetos',
       contact: 'Contato'
     },
+    header: {
+      resume: 'Currículo'
+    },
     home: {
       greeting: 'Olá, eu sou',
       name: 'Kenyson Oliveira',
@@ -443,13 +470,28 @@ export const translations: Record<Language, Translations> = {
         age: 'Idade',
         languages: 'Idiomas'
       },
-      education: {
-        title: 'Formação',
-        degree: 'Bacharelado em Ciência da Computação',
-        university: 'Universidade Federal de Pernambuco',
-        date: '2020 - 2024'
-      }
-    },
+education: {
+         title: 'Formação',
+         degree: 'Laurea in Ingegneria del Software',
+         university: 'Unicesumar',
+         date: 'Paraná – Brasile',
+         dateComplete: 'Conseguita nel dicembre 2023.'
+       },
+       softSkills: {
+         title: 'Soft Skills',
+         items: [
+           'Resolução de Problemas',
+           'Trabalho em Equipe',
+           'Comunicação Eficaz',
+           'Aprendizado Rápido',
+           'Adaptabilidade',
+           'Gestão de Prioridades',
+           'Atenção aos Detalhes',
+           'Orientação a Resultados',
+           'Autonomia Operacional'
+         ]
+       }
+     },
     skills: {
       title: 'Minhas Habilidades',
       categories: {
@@ -681,7 +723,36 @@ export const translations: Record<Language, Translations> = {
     experience: {
       title: 'Experiência Profissional',
       present: 'Presente',
-      internship: 'Estágio'
+      internship: 'Estágio',
+      items: {
+        nttData: {
+          role: 'Desenvolvedor Front-End',
+          company: 'NTT DATA Business Solutions (ex Conexos)',
+          location: 'Remoto',
+          period: 'Setembro 2023 – Maio 2026',
+          responsibilities: [
+            'Desenvolvimento de novas funcionalidades com Angular e AngularJS',
+            'Participação na migração tecnológica de JavaScript para TypeScript',
+            'Realização do novo menu principal da aplicação',
+            'Desenvolvimento da interface do usuário para o projeto DUIMP (Documento Único de Importação)',
+            'Integração com APIs REST',
+            'Implementação de componentes responsivos via Bootstrap e Tailwind CSS',
+            'Colaboração com equipes multidisciplinares seguindo metodologias Agile'
+          ]
+        },
+        conexosIntern: {
+          role: 'Estagiário de Desenvolvedor Front-End',
+          company: 'Conexos',
+          location: 'Vitória (ES), Brasil',
+          period: 'Setembro 2022 – Setembro 2023',
+          responsibilities: [
+            'Desenvolvimento e manutenção de funcionalidades web utilizando AngularJS',
+            'Implementação de interfaces responsivas',
+            'Correção de bugs e manutenção evolutiva',
+            'Suporte à equipe de desenvolvimento nas atividades diárias'
+          ]
+        }
+      }
     },
 projects: {
        title: 'Meus Projetos',
@@ -926,6 +997,9 @@ projects: {
       projects: 'Projects',
       contact: 'Contact'
     },
+    header: {
+      resume: 'Resume'
+    },
     home: {
       greeting: 'Hi, I\'m',
       name: 'Kenyson Oliveira',
@@ -944,13 +1018,28 @@ projects: {
         age: 'Age',
         languages: 'Languages'
       },
-      education: {
-        title: 'Education',
-        degree: 'Bachelor of Computer Science',
-        university: 'Federal University of Pernambuco',
-        date: '2020 - 2024'
-      }
-    },
+education: {
+         title: 'Education',
+         degree: 'Bachelor of Software Engineering',
+         university: 'Unicesumar',
+         date: 'Paraná – Brazil',
+         dateComplete: 'Completed in December 2023.'
+       },
+       softSkills: {
+         title: 'Soft Skills',
+         items: [
+           'Problem Solving',
+           'Team Working',
+           'Effective Communication',
+           'Fast Learning',
+           'Adaptability',
+           'Priority Management',
+           'Attention to Detail',
+           'Results Orientation',
+           'Operational Autonomy'
+         ]
+       }
+     },
     skills: {
       title: 'My Skills',
       categories: {
@@ -1182,7 +1271,36 @@ projects: {
     experience: {
       title: 'Professional Experience',
       present: 'Present',
-      internship: 'Internship'
+      internship: 'Internship',
+      items: {
+        nttData: {
+          role: 'Front-End Developer',
+          company: 'NTT DATA Business Solutions (ex Conexos)',
+          location: 'Remote',
+          period: 'September 2023 – May 2026',
+          responsibilities: [
+            'Development of new features with Angular and AngularJS',
+            'Participation in technological migration from JavaScript to TypeScript',
+            'Creation of the new main application menu',
+            'Development of the user interface for the DUIMP project (Single Import Document)',
+            'Integration with REST APIs',
+            'Implementation of responsive components via Bootstrap and Tailwind CSS',
+            'Collaboration with multidisciplinary teams following Agile methodologies'
+          ]
+        },
+        conexosIntern: {
+          role: 'Front-End Developer Intern',
+          company: 'Conexos',
+          location: 'Vitória (ES), Brazil',
+          period: 'September 2022 – September 2023',
+          responsibilities: [
+            'Development and maintenance of web features using AngularJS',
+            'Implementation of responsive interfaces',
+            'Bug fixing and evolutionary maintenance',
+            'Support to the development team in daily activities'
+          ]
+        }
+      }
     },
 projects: {
        title: 'My Projects',
@@ -1427,6 +1545,9 @@ projects: {
       projects: 'Progetti',
       contact: 'Contatto'
     },
+    header: {
+      resume: 'Curriculum'
+    },
     home: {
       greeting: 'Ciao, sono',
       name: 'Kenyson Oliveira',
@@ -1445,13 +1566,28 @@ projects: {
         age: 'Età',
         languages: 'Lingue'
       },
-      education: {
-        title: 'Formazione',
-        degree: 'Laurea in Informatica',
-        university: 'Università Federale di Pernambuco',
-        date: '2020 - 2024'
-      }
-    },
+education: {
+         title: 'Formazione',
+         degree: 'Laurea in Ingegneria del Software',
+         university: 'Unicesumar',
+         date: 'Paraná – Brasile',
+         dateComplete: 'Conseguita nel dicembre 2023.'
+       },
+       softSkills: {
+         title: 'Soft Skills',
+         items: [
+           'Problem Solving',
+           'Lavoro di Squadra',
+           'Comunicazione Efficace',
+           'Apprendimento Rapido',
+           'Adattabilità',
+           'Gestione delle Priorità',
+           'Attenzione ai Dettagli',
+           'Orientamento ai Risultati',
+           'Autonomia Operativa'
+         ]
+       }
+     },
     skills: {
       title: 'Le Mie Competenze',
       categories: {
@@ -1683,7 +1819,36 @@ projects: {
     experience: {
       title: 'Esperienza Professionale',
       present: 'Presente',
-      internship: 'Stage'
+      internship: 'Stage',
+      items: {
+        nttData: {
+          role: 'Sviluppatore Front-End',
+          company: 'NTT DATA Business Solutions (ex Conexos)',
+          location: 'Remoto',
+          period: 'Settembre 2023 – Maggio 2026',
+          responsibilities: [
+            'Sviluppo di nuove funzionalità con Angular e AngularJS',
+            'Partecipazione alla migrazione tecnologica da JavaScript a TypeScript',
+            'Realizzazione del nuovo menu principale dell\'applicazione',
+            'Sviluppo dell\'interfaccia utente per il progetto DUIMP (Documento Unico di Importazione)',
+            'Integrazione con API REST',
+            'Implementazione di componenti responsive tramite Bootstrap e Tailwind CSS',
+            'Collaborazione con team multidisciplinari seguendo metodologie Agile'
+          ]
+        },
+        conexosIntern: {
+          role: 'Tirocinante Sviluppatore Front-End',
+          company: 'Conexos',
+          location: 'Vitória (ES), Brasile',
+          period: 'Settembre 2022 – Settembre 2023',
+          responsibilities: [
+            'Sviluppo e manutenzione di funzionalità web utilizzando AngularJS',
+            'Implementazione di interfacce responsive',
+            'Correzione bug e manutenzione evolutiva',
+            'Supporto al team di sviluppo nelle attività quotidiane'
+          ]
+        }
+      }
     },
 projects: {
        title: 'I Miei Progetti',
