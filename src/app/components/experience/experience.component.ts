@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../translation.pipe';
+import { TranslationService } from '../translation.service';
 import { SlideAnimationDirective } from '../../directives/slide-animation.directive';
 
 @Component({
@@ -13,35 +14,21 @@ import { SlideAnimationDirective } from '../../directives/slide-animation.direct
 export class ExperienceComponent {
   experiences = [
     {
-      role: 'Front-End Developer',
-      company: 'NTT DATA Business Solutions (ex Conexos)',
-      period: 'Setembro 2023 – Maio 2026',
-      location: 'Remoto',
+      key: 'nttData',
       type: 'Full-time',
-      responsibilities: [
-        'Sviluppo di nuove funzionalità con Angular e AngularJS',
-        'Partecipazione alla migrazione tecnologica da JavaScript a TypeScript',
-        'Realizzazione del nuovo menu principale dell\'applicazione',
-        'Sviluppo dell\'interfaccia utente per il progetto DUIMP (Documento Unico di Importazione)',
-        'Integrazione con API REST',
-        'Implementazione di componenti responsive tramite Bootstrap e Tailwind CSS',
-        'Collaborazione con team multidisciplinari seguendo metodologie Agile',
-      ],
       technologies: ['Angular', 'AngularJS', 'TypeScript', 'Bootstrap', 'TailwindCSS', 'Git', 'Jira', 'Jenkins', 'RxJS'],
     },
     {
-      role: 'Front-End Developer Intern',
-      company: 'Conexos',
-      period: 'Setembro 2022 – Setembro 2023',
-      location: 'Vitória (ES), Brazil',
+      key: 'conexosIntern',
       type: 'Internship',
-      responsibilities: [
-        'Sviluppo e manutenzione di funzionalità web utilizzando AngularJS',
-        'Implementazione di interfacce responsive',
-        'Correzione bug e manutenzione evolutiva',
-        'Supporto al team di sviluppo nelle attività quotidiane',
-      ],
       technologies: ['AngularJS', 'JavaScript', 'HTML', 'CSS', 'Bootstrap'],
     },
   ];
+
+  constructor(public translationService: TranslationService) {}
+
+  getResponsibilities(key: string): string[] {
+    const resp = this.translationService.translate('experience.items.' + key + '.responsibilities');
+    return Array.isArray(resp) ? resp : [];
+  }
 }

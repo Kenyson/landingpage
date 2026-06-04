@@ -13,8 +13,7 @@ import { SlideAnimationDirective } from '../../directives/slide-animation.direct
 export class ProjectsComponent {
   projects = [
     {
-      title: 'PMS - Prescription Management System',
-      description: 'Projeto universitário - Uma aplicação abrangente de gerenciamento de prescrições com autenticação de usuário, permitindo que médicos criem, gerenciem e acompanham prescrições de pacientes com segurança.',
+      key: 'medicalSystem',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'JavaScript'],
       github: 'https://github.com/Kenyson/Meu-TCC/tree/main/pms',
       demo: 'https://kenyson.github.io/PMS/',

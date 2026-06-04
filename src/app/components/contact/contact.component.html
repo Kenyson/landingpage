@@ -44,18 +44,18 @@
         </div>
         <div class="contact-form-wrapper">
           <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form">
-            <div class="form-group">
-              <label for="name">{{ 'contact.form.name' | translate }}</label>
-              <input pInputText type="text" id="name" name="name" [(ngModel)]="formData.name" required placeholder="Digite seu nome" />
-            </div>
-            <div class="form-group">
-              <label for="emailForm">{{ 'contact.form.email' | translate }}</label>
-              <input pInputText type="email" id="emailForm" name="email" [(ngModel)]="formData.email" required placeholder="Digite seu email" />
-            </div>
-            <div class="form-group">
-              <label for="message">{{ 'contact.form.message' | translate }}</label>
-              <textarea pInputTextarea id="message" name="message" rows="5" [(ngModel)]="formData.message" required placeholder="Digite sua mensagem"></textarea>
-            </div>
+<div class="form-group">
+               <label for="name">{{ 'contact.form.name' | translate }}</label>
+               <input pInputText type="text" id="name" name="name" [(ngModel)]="formData.name" required [placeholder]="translationService.translate('contact.form.placeholders.name')" />
+             </div>
+             <div class="form-group">
+               <label for="emailForm">{{ 'contact.form.email' | translate }}</label>
+               <input pInputText type="email" id="emailForm" name="email" [(ngModel)]="formData.email" required [placeholder]="translationService.translate('contact.form.placeholders.email')" />
+             </div>
+             <div class="form-group">
+               <label for="message">{{ 'contact.form.message' | translate }}</label>
+               <textarea pInputTextarea id="message" name="message" rows="5" [(ngModel)]="formData.message" required [placeholder]="translationService.translate('contact.form.placeholders.message')"></textarea>
+             </div>
             <p-button
               type="submit"
               [label]="submitLabel"

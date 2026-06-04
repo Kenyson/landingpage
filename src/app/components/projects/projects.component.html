@@ -3,11 +3,11 @@
     <div class="container">
     <h2 class="section-title">{{ 'projects.title' | translate }}</h2>
     <div class="projects-grid">
-      @for (project of projects; track project.title) {
+      @for (project of projects; track project.key) {
         <div class="project-card">
           @if (project.image) {
             <div class="project-image">
-              <img [src]="project.image" [alt]="project.title + ' screenshot'" class="project-img" />
+              <img [src]="project.image" [attr.alt]="('projects.items.' + project.key + '.title') | translate" class="project-img" />
             </div>
           } @else {
             <div class="project-image placeholder">
@@ -16,9 +16,9 @@
               </div>
             </div>
           }
-          <div class="project-content">
-            <h3 class="project-title">{{ project.title }}</h3>
-            <p class="project-description">{{ project.description }}</p>
+<div class="project-content">
+             <h3 class="project-title">{{ 'projects.items.' + project.key + '.title' | translate }}</h3>
+             <p class="project-description">{{ 'projects.items.' + project.key + '.description' | translate }}</p>
             <div class="project-technologies">
               @for (tech of project.technologies; track tech) {
                 <span class="tech-chip">{{ tech }}</span>

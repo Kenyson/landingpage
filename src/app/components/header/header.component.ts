@@ -1,12 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../translation.pipe';
 import { ThemeService } from '../theme.service';
 import { TranslationService } from '../translation.service';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })

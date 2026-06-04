@@ -30,7 +30,7 @@ export class TranslationService {
     localStorage.setItem('portfolio-language', lang);
   }
 
-  translate(key: string, params?: Record<string, any>): string {
+  translate(key: string, params?: Record<string, any>): any {
     const data = this.currentLanguageData;
     const value = key.split('.').reduce((obj: any, k: string) => obj?.[k], data) || key;
 

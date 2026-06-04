@@ -34,29 +34,23 @@
               <span class="value">Portoghese (Madrelingua), Italiano (Fluente), Inglese (Avanzato)</span>
             </div>
           </div>
-          <div class="education">
-            <h3>{{ 'about.education.title' | translate }}</h3>
-            <p>
-              <strong>Laurea in Ingegneria del Software</strong><br>
-              Unicesumar<br>
-              Paraná – Brasile<br>
-              Conseguita nel dicembre 2023.
-            </p>
-          </div>
-          <div class="soft-skills">
-            <h3>Soft Skills</h3>
-            <div class="skills-grid">
-              <span class="soft-skill-tag">Problem Solving</span>
-              <span class="soft-skill-tag">Team Working</span>
-              <span class="soft-skill-tag">Comunicação Eficaz</span>
-              <span class="soft-skill-tag">Aprendizado Rápido</span>
-              <span class="soft-skill-tag">Adaptabilidade</span>
-              <span class="soft-skill-tag">Gestão de Prioridades</span>
-              <span class="soft-skill-tag">Atenção aos Detalhes</span>
-              <span class="soft-skill-tag">Orientação a Resultados</span>
-              <span class="soft-skill-tag">Autonomia Operacional</span>
-            </div>
-          </div>
+<div class="education">
+             <h3>{{ 'about.education.title' | translate }}</h3>
+             <p>
+<strong>{{ 'about.education.degree' | translate }}</strong><br>
+                {{ 'about.education.university' | translate }}<br>
+                {{ 'about.education.date' | translate }}<br>
+                {{ 'about.education.dateComplete' | translate }}
+             </p>
+           </div>
+           <div class="soft-skills">
+             <h3>{{ 'about.softSkills.title' | translate }}</h3>
+             <div class="skills-grid">
+               @for (skill of getSkills(); track skill) {
+                 <span class="soft-skill-tag">{{ skill }}</span>
+               }
+             </div>
+           </div>
         </div>
       </div>
     </div>
