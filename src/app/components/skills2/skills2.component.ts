@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../translation.pipe';
 import { SkillDemo } from '../../models/skill.model';
 import { SKILLS_DATA } from '../../data/skills.data';
+import { SlideAnimationDirective } from '../../directives/slide-animation.directive';
 
 @Component({
   selector: 'app-skills2',
   standalone: true,
   imports: [
     CommonModule,
-    TranslatePipe
+    TranslatePipe,
+    SlideAnimationDirective
   ],
   templateUrl: './skills2.component.html',
   styleUrl: './skills2.component.css'

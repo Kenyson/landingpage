@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../translation.pipe';
+import { SlideAnimationDirective } from '../../directives/slide-animation.directive';
 
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [CommonModule, TranslatePipe],
+  imports: [CommonModule, TranslatePipe, SlideAnimationDirective],
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.css',
 })

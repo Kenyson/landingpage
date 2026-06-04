@@ -7,11 +7,12 @@ import { TextareaModule } from 'primeng/textarea';
 import { ButtonModule } from 'primeng/button';
 import { TranslatePipe } from '../translation.pipe';
 import { TranslationService } from '../translation.service';
+import { SlideAnimationDirective } from '../../directives/slide-animation.directive';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, InputTextModule, TextareaModule, ButtonModule, TranslatePipe],
+  imports: [CommonModule, FormsModule, HttpClientModule, InputTextModule, TextareaModule, ButtonModule, TranslatePipe, SlideAnimationDirective],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css',
 })

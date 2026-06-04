@@ -8,10 +8,12 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { Skills2Component } from "./components/skills2/skills2.component";
+import { SlideAnimationDirective } from './directives/slide-animation.directive';
 
 @Component({
   selector: 'app-root',
   imports: [
+    SlideAnimationDirective,
     HeaderComponent,
     FooterComponent,
     HeroComponent,
@@ -21,7 +23,7 @@ import { Skills2Component } from "./components/skills2/skills2.component";
     ProjectsComponent,
     ContactComponent,
     Skills2Component
-],
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

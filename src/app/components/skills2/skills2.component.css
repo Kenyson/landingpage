@@ -2,7 +2,8 @@
   padding: 6rem 0;
   background: transparent;
   position: relative;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .skills2-bg {

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../translation.pipe';
+import { SlideAnimationDirective } from '../../directives/slide-animation.directive';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, TranslatePipe],
+  imports: [CommonModule, TranslatePipe, SlideAnimationDirective],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css',
 })
@@ -19,17 +20,17 @@ export class ProjectsComponent {
       demo: 'https://kenyson.github.io/PMS/',
       image: 'assets/pms_img.png',
     },
-    {
-      title: 'Interface DUIMP',
-      description: 'Aplicação crítica de negócio desenvolvida na NTT DATA para gerenciar o Documento Único de Importação. Construída com Angular 19, apresentando formulários complexos e validação.',
-      technologies: ['Angular 19', 'TypeScript', 'TailwindCSS', 'REST API', 'Bootstrap'],
-      github: 'https://github.com/Kenyson',
-    },
-    {
-      title: 'Sistema de Menu Principal Empresarial',
-      description: 'Modernizei o sistema de navegação principal na NTT DATA, migrando do legado AngularJS para Angular moderno com TypeScript, melhorando performance e manutenibilidade.',
-      technologies: ['AngularJS', 'Angular', 'TypeScript', 'Git', 'Jenkins'],
-      github: 'https://github.com/Kenyson',
-    },
+    // {
+    //   title: 'Interface DUIMP',
+    //   description: 'Aplicação crítica de negócio desenvolvida na NTT DATA para gerenciar o Documento Único de Importação. Construída com Angular 19, apresentando formulários complexos e validação.',
+    //   technologies: ['Angular 19', 'TypeScript', 'TailwindCSS', 'REST API', 'Bootstrap'],
+    //   github: 'https://github.com/Kenyson',
+    // },
+    // {
+    //   title: 'Sistema de Menu Principal Empresarial',
+    //   description: 'Modernizei o sistema de navegação principal na NTT DATA, migrando do legado AngularJS para Angular moderno com TypeScript, melhorando performance e manutenibilidade.',
+    //   technologies: ['AngularJS', 'Angular', 'TypeScript', 'Git', 'Jenkins'],
+    //   github: 'https://github.com/Kenyson',
+    // },
   ];
 }
