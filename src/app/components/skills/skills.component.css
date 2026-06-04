@@ -678,30 +678,57 @@ input:checked + .slider:before {
 }
 
 @media (max-width: 768px) {
-  .skills-layout {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+   .skills {
+     padding: 4rem 0;
+   }
 
-  .skills-sidebar {
-    max-height: 300px;
-  }
+   .skills-layout {
+     grid-template-columns: 1fr;
+     gap: 1.5rem;
+     min-height: auto;
+   }
 
-  .skill-detail-header {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
+   .skills-sidebar {
+     max-height: 300px;
+   }
 
-  .skill-overview {
-    flex-direction: column;
-    text-align: center;
-  }
+   .skill-detail-header {
+     flex-direction: column;
+     gap: 1rem;
+     text-align: center;
+   }
 
-  .welcome-stats {
-    flex-direction: column;
-    gap: 1rem;
-  }
+   .skill-overview {
+     flex-direction: column;
+     text-align: center;
+   }
+
+   .welcome-stats {
+     flex-direction: column;
+     gap: 1rem;
+   }
+}
+
+@media (max-width: 480px) {
+   .skills {
+     padding: 3rem 0;
+   }
+
+   .skills-sidebar {
+     padding: 1rem;
+   }
+
+   .skill-detail-header {
+     padding: 1.25rem;
+   }
+
+   .skill-detail-content {
+     padding: 1.25rem;
+   }
+
+   .skills-content {
+     min-height: 400px;
+   }
 }
 
 .skills-content {

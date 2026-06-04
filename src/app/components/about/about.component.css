@@ -180,9 +180,14 @@
 }
 
 @media (max-width: 768px) {
+  .about {
+    padding: 4rem 0;
+  }
+
   .about-content {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 2rem;
   }
 
   .image-frame {
@@ -192,5 +197,29 @@
 
   .about-details {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 3rem 0;
+  }
+
+  .about-content {
+    gap: 1.5rem;
+  }
+
+  .profile-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+
+  .initials {
+    font-size: 3rem;
+  }
+
+  .education,
+  .soft-skills {
+    padding: 1.25rem;
   }
 }
