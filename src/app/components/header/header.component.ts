@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../translation.pipe';
 import { ThemeService } from '../theme.service';
@@ -10,10 +10,13 @@ import { TranslationService } from '../translation.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit {
   mobileMenuOpen = signal(false);
   langMenuOpen = signal(false);
   activeSection = signal('home');
+
+  @ViewChild('langMenuBtn') langMenuBtn!: ElementRef;
+  @ViewChild('langMenu') langMenu!: ElementRef;
 
   private sections = ['home', 'about', 'skills2', 'experience', 'projects', 'contact'];
 
@@ -60,11 +63,24 @@ export class HeaderComponent {
 
   toggleLangMenu(): void {
     this.langMenuOpen.set(!this.langMenuOpen());
+    if (this.langMenuOpen() && this.langMenuBtn && this.langMenu) {
+      setTimeout(() => {
+        const btn = this.langMenuBtn.nativeElement;
+        const menu = this.langMenu.nativeElement;
+        const rect = btn.getBoundingClientRect();
+        menu.style.top = `${rect.bottom + 5}px`;
+        menu.style.right = `${window.innerWidth - rect.right}px`;
+      });
+    }
   }
 
   setLanguage(langCode: string): void {
     this.translationService.setLanguage(langCode as any);
     this.langMenuOpen.set(false);
+  }
+
+  ngAfterViewInit() {
+    // Initial positioning
   }
 
   private setupScrollSpy() {

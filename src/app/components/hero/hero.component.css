@@ -163,11 +163,16 @@
 }
 
 [data-theme="light"] .name {
-  background: none !important;
+  background: #f8fafc !important;
   -webkit-background-clip: unset !important;
   -webkit-text-fill-color: unset !important;
   background-clip: unset !important;
-  color: #000000 !important;
+  color: #1e40af !important;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.25);
+  display: inline-block;
+  font-weight: 900;
 }
 
 .title {

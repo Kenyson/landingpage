@@ -454,7 +454,7 @@ export const translations: Record<Language, Translations> = {
     },
     home: {
       greeting: 'Olá, eu sou',
-      name: 'Kenyson Oliveira',
+      name: 'Kenyson Oliveira Loureiro',
       title: 'Desenvolvedor Front-End',
       tagline: 'Especialista em Angular, criando experiências digitais incríveis.',
       ctaTouch: 'Vamos Conversar',
@@ -977,7 +977,7 @@ projects: {
       }
     },
     footer: {
-      brand: 'Kenyson Oliveira',
+      brand: 'Kenyson Oliveira Loureiro',
       tagline: 'Desenvolvedor Front-End especializado em Angular.',
       links: 'Links Rápidos',
       connect: 'Conectar',
@@ -1002,7 +1002,7 @@ projects: {
     },
     home: {
       greeting: 'Hi, I\'m',
-      name: 'Kenyson Oliveira',
+      name: 'Kenyson Oliveira Loureiro',
       title: 'Front-End Developer',
       tagline: 'Angular specialist creating amazing digital experiences.',
       ctaTouch: 'Get In Touch',
@@ -1525,7 +1525,7 @@ projects: {
       }
     },
     footer: {
-      brand: 'Kenyson Oliveira',
+      brand: 'Kenyson Oliveira Loureiro',
       tagline: 'Full-Stack Developer creating amazing digital experiences.',
       links: 'Quick Links',
       connect: 'Connect',
@@ -1550,7 +1550,7 @@ projects: {
     },
     home: {
       greeting: 'Ciao, sono',
-      name: 'Kenyson Oliveira',
+      name: 'Kenyson Oliveira Loureiro',
       title: 'Sviluppatore Front-End',
       tagline: 'Specialista Angular che crea esperienze digitali eccezionali.',
       ctaTouch: 'Mettiti in Contatto',
@@ -2073,7 +2073,7 @@ projects: {
       }
     },
     footer: {
-      brand: 'Kenyson Oliveira',
+      brand: 'Kenyson Oliveira Loureiro',
       tagline: 'Sviluppatore Front-End che crea esperienze digitali eccezionali.',
       links: 'Link Veloci',
       connect: 'Connettiti',
