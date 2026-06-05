@@ -467,7 +467,7 @@ export const translations: Record<Language, Translations> = {
       titlePrefix: 'Desenvolvedor',
       titleHighlight: 'Front-End',
       titleSuffix: '',
-      tagline: 'Especialista em Angular, criando experiências digitais incríveis.',
+      tagline: 'Criando experiências digitais incríveis com Angular.',
       ctaTouch: 'Vamos Conversar',
       ctaProjects: 'Ver Projetos',
       scroll: 'Role para baixo'
@@ -754,7 +754,7 @@ education: {
         conexosIntern: {
           role: 'Estagiário de Desenvolvedor Front-End',
           company: 'Conexos',
-          location: 'Vitória (ES), Brasil',
+          location: 'Remoto',
           period: 'Setembro 2022 – Setembro 2023',
           responsibilities: [
             'Desenvolvimento e manutenção de funcionalidades web utilizando AngularJS',
@@ -1023,7 +1023,7 @@ projects: {
       titlePrefix: '',
       titleHighlight: 'Front-End',
       titleSuffix: 'Developer',
-      tagline: 'Angular specialist creating amazing digital experiences.',
+      tagline: 'Creating amazing digital experiences with Angular.',
       ctaTouch: 'Get In Touch',
       ctaProjects: 'View Projects',
       scroll: 'Scroll down'
@@ -1310,7 +1310,7 @@ education: {
         conexosIntern: {
           role: 'Front-End Developer Intern',
           company: 'Conexos',
-          location: 'Vitória (ES), Brazil',
+          location: 'Remote',
           period: 'September 2022 – September 2023',
           responsibilities: [
             'Development and maintenance of web features using AngularJS',
@@ -1579,7 +1579,7 @@ projects: {
       titlePrefix: 'Sviluppatore',
       titleHighlight: 'Front-End',
       titleSuffix: '',
-      tagline: 'Specialista Angular che crea esperienze digitali eccezionali.',
+      tagline: 'Creando esperienze digitali eccezionali con Angular.',
       ctaTouch: 'Mettiti in Contatto',
       ctaProjects: 'Vedi Progetti',
       scroll: 'Scorri verso il basso'
@@ -1866,7 +1866,7 @@ education: {
         conexosIntern: {
           role: 'Tirocinante Sviluppatore Front-End',
           company: 'Conexos',
-          location: 'Vitória (ES), Brasile',
+          location: 'Remoto',
           period: 'Settembre 2022 – Settembre 2023',
           responsibilities: [
             'Sviluppo e manutenzione di funzionalità web utilizzando AngularJS',

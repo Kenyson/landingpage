@@ -4,6 +4,7 @@ import { TranslatePipe } from '../translation.pipe';
 import { SkillDemo } from '../../models/skill.model';
 import { SKILLS_DATA } from '../../data/skills.data';
 import { SlideAnimationDirective } from '../../directives/slide-animation.directive';
+import { TranslationService } from '../translation.service';
 
 @Component({
   selector: 'app-skills2',
@@ -17,6 +18,8 @@ import { SlideAnimationDirective } from '../../directives/slide-animation.direct
   styleUrl: './skills2.component.css'
 })
 export class Skills2Component {
+  constructor(private translationService: TranslationService) {}
+
   // Data from separate file
   skills: SkillDemo[] = SKILLS_DATA;
 
@@ -32,11 +35,6 @@ export class Skills2Component {
   }
 
   getCategoryLabel(key: string): string {
-    const labels: Record<string, string> = {
-      'Languages': 'Linguagens',
-      'Frontend': 'Frameworks Frontend',
-      'Tools': 'Ferramentas e Plataformas'
-    };
-    return labels[key] || key;
+    return this.translationService.translate(`skills.categories.${key.toLowerCase()}`);
   }
 }

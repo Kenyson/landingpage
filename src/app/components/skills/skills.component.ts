@@ -4,6 +4,7 @@ import { TranslatePipe } from '../translation.pipe';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SkillDemo } from '../../models/skill.model';
 import { SKILLS_DATA } from '../../data/skills.data';
+import { TranslationService } from '../translation.service';
 import { JavaScriptDemoComponent } from './demos/javascript-demo/javascript-demo.component';
 import { TypeScriptDemoComponent } from './demos/typescript-demo/typescript-demo.component';
 import { Html5DemoComponent } from './demos/html5-demo/html5-demo.component';
@@ -40,6 +41,8 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './skills.component.css'
 })
 export class SkillsComponent {
+  constructor(private translationService: TranslationService) {}
+
   skills: SkillDemo[] = SKILLS_DATA;
 
   selectedSkill: SkillDemo | null = null;
@@ -59,12 +62,7 @@ export class SkillsComponent {
 
 
   getCategoryLabel(key: string): string {
-    const labels: Record<string, string> = {
-      'Languages': 'Linguagens',
-      'Frontend': 'Frameworks Frontend',
-      'Tools': 'Ferramentas e Plataformas'
-    };
-    return labels[key] || key;
+    return this.translationService.translate(`skills.categories.${key.toLowerCase()}`);
   }
 
 

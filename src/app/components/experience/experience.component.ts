@@ -16,7 +16,7 @@ export class ExperienceComponent {
     {
       key: 'nttData',
       type: 'Full-time',
-      technologies: ['Angular', 'AngularJS', 'TypeScript', 'Bootstrap', 'TailwindCSS', 'Git', 'Jira', 'Jenkins', 'RxJS'],
+      technologies: ['Angular', 'AngularJS', 'TypeScript', 'Bootstrap', 'TailwindCSS', 'Git', 'Jira', 'Jenkins'],
     },
     {
       key: 'conexosIntern',
