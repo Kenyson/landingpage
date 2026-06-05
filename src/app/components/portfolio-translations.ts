@@ -232,6 +232,11 @@ export interface Translations {
         email: string;
         message: string;
         send: string;
+        placeholders: {
+          name: string;
+          email: string;
+          message: string;
+        };
       };
       info: {
         email: string;
@@ -781,7 +786,12 @@ projects: {
         name: 'Nome',
         email: 'Email',
         message: 'Mensagem',
-        send: 'Enviar Mensagem'
+        send: 'Enviar Mensagem',
+        placeholders: {
+          name: 'Seu nome',
+          email: 'seu@email.com',
+          message: 'Sua mensagem...'
+        }
       },
       info: {
         email: 'Email',
@@ -1329,7 +1339,12 @@ projects: {
         name: 'Name',
         email: 'Email',
         message: 'Message',
-        send: 'Send Message'
+        send: 'Send Message',
+        placeholders: {
+          name: 'Your name',
+          email: 'your@email.com',
+          message: 'Your message...'
+        }
       },
       info: {
         email: 'Email',
@@ -1877,7 +1892,12 @@ projects: {
         name: 'Nome',
         email: 'Email',
         message: 'Messaggio',
-        send: 'Invia Messaggio'
+        send: 'Invia Messaggio',
+        placeholders: {
+          name: 'Il tuo nome',
+          email: 'tua@email.com',
+          message: 'Il tuo messaggio...'
+        }
       },
       info: {
         email: 'Email',
