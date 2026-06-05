@@ -151,9 +151,27 @@
   width: 100% !important;
 }
 
-.p-button:disabled {
-  opacity: 0.6 !important;
+.p-button:disabled,
+.p-button.p-button-disabled,
+.p-button.p-button-primary:disabled,
+.p-button.p-button-primary.p-button-disabled,
+.contact-submit-btn:disabled,
+.contact-submit-btn.p-button-disabled,
+.p-button[disabled] {
+  background: #334155 !important;
+  color: #9ca3af !important;
+  opacity: 0.85 !important;
   cursor: not-allowed !important;
+  box-shadow: none !important;
+  border: 1px solid #475569 !important;
+  filter: grayscale(80%) !important;
+}
+
+.p-button:disabled .p-button-label,
+.contact-submit-btn:disabled .p-button-label,
+.p-button.p-button-disabled .p-button-label,
+.p-button.p-button-primary:disabled .p-button-label {
+  color: #9ca3af !important;
 }
 
 @media (max-width: 768px) {

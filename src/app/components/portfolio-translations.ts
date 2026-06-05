@@ -235,6 +235,8 @@ export interface Translations {
         email: string;
         message: string;
         send: string;
+        sending: string;
+        sent: string;
         placeholders: {
           name: string;
           email: string;
@@ -481,12 +483,12 @@ export const translations: Record<Language, Translations> = {
         age: 'Idade',
         languages: 'Idiomas'
       },
-education: {
+      education: {
          title: 'Formação',
-         degree: 'Laurea in Ingegneria del Software',
+         degree: 'Bacharel em Engenharia de Software',
          university: 'Unicesumar',
-         date: 'Paraná – Brasile',
-         dateComplete: 'Conseguita nel dicembre 2023.'
+         date: 'Paraná – Brasil',
+         dateComplete: 'Concluído em dezembro de 2023.'
        },
        softSkills: {
          title: 'Soft Skills',
@@ -793,6 +795,8 @@ projects: {
         email: 'Email',
         message: 'Mensagem',
         send: 'Enviar Mensagem',
+        sending: 'Enviando...',
+        sent: 'Enviado',
         placeholders: {
           name: 'Seu nome',
           email: 'seu@email.com',
@@ -1349,6 +1353,8 @@ projects: {
         email: 'Email',
         message: 'Message',
         send: 'Send Message',
+        sending: 'Sending...',
+        sent: 'Sent',
         placeholders: {
           name: 'Your name',
           email: 'your@email.com',
@@ -1905,6 +1911,8 @@ projects: {
         email: 'Email',
         message: 'Messaggio',
         send: 'Invia Messaggio',
+        sending: 'Invio in corso...',
+        sent: 'Inviato',
         placeholders: {
           name: 'Il tuo nome',
           email: 'tua@email.com',
