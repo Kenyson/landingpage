@@ -227,6 +227,26 @@
   padding: 0 1.5rem;
 }
 
+.section-title {
+  font-size: clamp(1.75rem, 2.2vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+  text-transform: none;
+  line-height: 1.1;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 4rem;
+  height: 3px;
+  margin-top: 0.85rem;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: 999px;
+}
+
 /* Navigation spacing for fixed header */
 main {
   padding-top: 70px;

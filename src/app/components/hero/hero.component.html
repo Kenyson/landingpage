@@ -23,7 +23,15 @@
     <div class="hero-text">
       <p class="greeting">{{ 'home.greeting' | translate }}</p>
       <h1 class="name">{{ 'home.name' | translate }}</h1>
-      <h2 class="title">{{ 'home.title' | translate }}</h2>
+      <h2 class="title">
+        <ng-container *ngIf="'home.titlePrefix' | translate as prefix">
+          <span class="title-prefix">{{ prefix }}</span>&nbsp;
+        </ng-container>
+        <span class="title-highlight">{{ 'home.titleHighlight' | translate }}</span>
+        <ng-container *ngIf="'home.titleSuffix' | translate as suffix">
+          &nbsp;<span class="title-suffix">{{ suffix }}</span>
+        </ng-container>
+      </h2>
       <p class="tagline">
         {{ 'home.tagline' | translate }}
       </p>

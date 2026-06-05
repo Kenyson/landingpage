@@ -16,6 +16,9 @@ export interface Translations {
     greeting: string;
     name: string;
     title: string;
+    titlePrefix: string;
+    titleHighlight: string;
+    titleSuffix: string;
     tagline: string;
     ctaTouch: string;
     ctaProjects: string;
@@ -461,6 +464,9 @@ export const translations: Record<Language, Translations> = {
       greeting: 'Olá, eu sou',
       name: 'Kenyson Oliveira Loureiro',
       title: 'Desenvolvedor Front-End',
+      titlePrefix: 'Desenvolvedor',
+      titleHighlight: 'Front-End',
+      titleSuffix: '',
       tagline: 'Especialista em Angular, criando experiências digitais incríveis.',
       ctaTouch: 'Vamos Conversar',
       ctaProjects: 'Ver Projetos',
@@ -1014,6 +1020,9 @@ projects: {
       greeting: 'Hi, I\'m',
       name: 'Kenyson Oliveira Loureiro',
       title: 'Front-End Developer',
+      titlePrefix: '',
+      titleHighlight: 'Front-End',
+      titleSuffix: 'Developer',
       tagline: 'Angular specialist creating amazing digital experiences.',
       ctaTouch: 'Get In Touch',
       ctaProjects: 'View Projects',
@@ -1567,6 +1576,9 @@ projects: {
       greeting: 'Ciao, sono',
       name: 'Kenyson Oliveira Loureiro',
       title: 'Sviluppatore Front-End',
+      titlePrefix: 'Sviluppatore',
+      titleHighlight: 'Front-End',
+      titleSuffix: '',
       tagline: 'Specialista Angular che crea esperienze digitali eccezionali.',
       ctaTouch: 'Mettiti in Contatto',
       ctaProjects: 'Vedi Progetti',
