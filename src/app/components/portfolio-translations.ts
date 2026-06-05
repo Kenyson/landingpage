@@ -468,7 +468,7 @@ export const translations: Record<Language, Translations> = {
     },
     about: {
       title: 'Sobre Mim',
-      intro: 'Sou um desenvolvedor apaixonado por tecnologia, focado em criar soluções inovadoras e experiências de usuário excepcionais.',
+      intro: 'Desenvolvedor Front-End com experiência no desenvolvimento e modernização de aplicações web empresariais usando Angular, AngularJS, TypeScript e tecnologias web modernas. Participei de projetos de transformação digital para o setor logístico e aduaneiro, contribuindo para a migração de sistemas legados para arquiteturas modernas e para o desenvolvimento de novas funcionalidades com alto impacto operacional. Destaco-me pela capacidade de resolução de problemas, colaboração em equipes Agile, atenção à qualidade do código e aprendizado contínuo. Estou em busca de oportunidades para crescer profissionalmente em contextos inovadores e internacionais.',
       details: {
         location: 'Localização',
         nationality: 'Nacionalidade',
@@ -1021,7 +1021,7 @@ projects: {
     },
     about: {
       title: 'About Me',
-      intro: 'I\'m a passionate developer focused on creating innovative solutions and exceptional user experiences.',
+      intro: 'Front-End Developer with experience in developing and modernizing enterprise web applications using Angular, AngularJS, TypeScript and modern web technologies. I have participated in digital transformation projects for the logistics and customs sector, contributing to the migration of legacy systems to modern architectures and the development of new features with high operational impact. I stand out for problem-solving skills, collaboration in Agile teams, attention to code quality and continuous learning. I am looking for opportunities to grow professionally in innovative and international contexts.',
       details: {
         location: 'Location',
         nationality: 'Nationality',
@@ -1574,7 +1574,7 @@ projects: {
     },
     about: {
       title: 'Su di Me',
-      intro: 'Sono uno sviluppatore appassionato di tecnologia, focalizzato sulla creazione di soluzioni innovative ed esperienze utente eccezionali.',
+      intro: 'Front-End Developer con esperienza nello sviluppo e nella modernizzazione di applicazioni web enterprise utilizzando Angular, AngularJS, TypeScript e tecnologie moderne del web. Ho partecipato a progetti di trasformazione digitale per il settore logistico e doganale, contribuendo alla migrazione di sistemi legacy verso architetture moderne e allo sviluppo di nuove funzionalità ad alto impatto operativo. Mi distinguo per capacità di problem solving, collaborazione in team Agile, attenzione alla qualidade del codice e apprendimento continuo. Sono alla ricerca di opportunità che mi permettano di crescere professionalmente in contesti innovativi e internazionali.',
       details: {
         location: 'Posizione',
         nationality: 'Nazionalità',
