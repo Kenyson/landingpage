@@ -574,9 +574,9 @@ education: {
           }
         },
         angular: {
-          name: 'Angular 19+',
+          name: 'Angular',
           description: 'Framework moderno com Signals, Reactive Forms e Componentes Standalone.',
-          longDescription: 'Angular 19+ oferece arquitetura moderna: Signals para reatividade granular, Reactive Forms com validadores poderosos, Componentes Standalone para modularidade simplificada, e CLI avançado para build e deploy.',
+          longDescription: 'Angular oferece arquitetura moderna: Signals para reatividade granular, Reactive Forms com validadores poderosos, Componentes Standalone para modularidade simplificada, e CLI avançado para build e deploy.',
           examples: {
             tasks: {
               title: 'Sistema de Tarefas Completo',
@@ -1127,9 +1127,9 @@ education: {
           }
         },
         angular: {
-          name: 'Angular 19+',
+          name: 'Angular',
           description: 'Modern framework with Signals, Reactive Forms and Standalone Components.',
-          longDescription: 'Angular 19+ offers modern architecture: Signals for granular reactivity, Reactive Forms with powerful validators, Standalone Components for simplified modularity, and advanced CLI for build and deploy.',
+          longDescription: 'Angular offers modern architecture: Signals for granular reactivity, Reactive Forms with powerful validators, Standalone Components for simplified modularity, and advanced CLI for build and deploy.',
           examples: {
             tasks: {
               title: 'Complete Task System',
@@ -1680,9 +1680,9 @@ education: {
           }
         },
         angular: {
-          name: 'Angular 19+',
+          name: 'Angular',
           description: 'Framework moderno con Signals, Reactive Forms e Componenti Standalone.',
-          longDescription: 'Angular 19+ offre architettura moderna: Signals per reattività granulare, Reactive Forms con validatori potenti, Componenti Standalone per modularità semplificata, e CLI avanzato per build e deploy.',
+          longDescription: 'Angular offre architettura moderna: Signals per reattività granulare, Reactive Forms con validatori potenti, Componenti Standalone per modularità semplificata, e CLI avanzato per build e deploy.',
           examples: {
             tasks: {
               title: 'Sistema di Compiti Completo',

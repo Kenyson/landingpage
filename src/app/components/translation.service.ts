@@ -45,13 +45,17 @@ export class TranslationService {
 
   initializeLanguage() {
     const saved = localStorage.getItem('portfolio-language') as Language;
-    if (saved && this.availableLanguages.find(l => l.code === saved)) {
+
+    if (saved && this.availableLanguages.some(l => l.code === saved)) {
       this._currentLanguage.set(saved);
-    } else {
-      const browserLang = navigator.language.split('-')[0] as Language;
-      if (this.availableLanguages.find(l => l.code === browserLang)) {
-        this._currentLanguage.set(browserLang);
-      }
+      return;
     }
+
+    const browserLanguage = (navigator.language || navigator.languages?.[0] || 'en').split('-')[0] as Language;
+    const supportedBrowserLang = this.availableLanguages.some(l => l.code === browserLanguage)
+      ? browserLanguage
+      : 'en';
+
+    this._currentLanguage.set(supportedBrowserLang);
   }
 }

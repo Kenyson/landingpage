@@ -63,6 +63,20 @@
   font-size: 2.5rem;
   color: #60a5fa;
   margin-bottom: 1rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skill-icon svg,
+.skill-icon i {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: block;
+}
+
+.skill-icon svg {
+  fill: currentColor;
 }
 
 .skill-name {

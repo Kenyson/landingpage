@@ -48,19 +48,26 @@ export class ContactComponent {
       const telegramChatID = '8801224465';
 
        // Prepare email data for EmailJS
+       const emailBody = `Nome: ${this.formData.name}\nEmail: ${this.formData.email}\nMensagem:\n${this.formData.message}`;
+
        const emailData = {
          service_id: emailjsServiceID,
          template_id: emailjsTemplateID,
          user_id: emailjsUserID,
          template_params: {
            name: this.formData.name,
+           email: this.formData.email,
+           sender_email: this.formData.email,
            email_from: this.formData.email,
-           message: this.formData.message
+           message: emailBody,
+           from_name: this.formData.name,
+           reply_to: this.formData.email,
+           subject: `Contact Us: ${this.formData.name}`
          }
        };
 
        // Prepare Telegram message
-       const telegramMessage = 
+       const telegramMessage =
          `<b>Nova mensagem do formulário de contato</b>\n` +
          `<b>Nome:</b> ${this.formData.name}\n` +
          `<b>Email:</b> ${this.formData.email}\n` +
@@ -68,8 +75,8 @@ export class ContactComponent {
 
        const telegramData = {
          chat_id: telegramChatID,
-         text: telegramMessage
-         // parse_mode: 'HTML' - Removed to avoid potential parsing issues
+         text: telegramMessage,
+         parse_mode: 'HTML'
        };
 
        // Send email (primary)
@@ -85,7 +92,7 @@ export class ContactComponent {
              .catch((telegramError) => {
                console.warn('Telegram notification failed (non-critical):', telegramError);
              });
-           
+
            // Show success since email worked
            alert(this.translationService.translate('contact.success', { name: this.formData.name, email: this.formData.email }));
            this.formData = { name: '', email: '', message: '' };

@@ -9,6 +9,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { Skills2Component } from "./components/skills2/skills2.component";
 import { SlideAnimationDirective } from './directives/slide-animation.directive';
+import { TranslationService } from './components/translation.service';
 
 @Component({
   selector: 'app-root',
@@ -27,4 +28,8 @@ import { SlideAnimationDirective } from './directives/slide-animation.directive'
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {}
+export class App {
+  constructor(translationService: TranslationService) {
+    translationService.initializeLanguage();
+  }
+}

@@ -389,7 +389,7 @@ console.log(result);`,
       {
         title: 'skills.items.angular.examples.tasks.title',
         description: 'skills.items.angular.examples.tasks.description',
-        code: `// Componente Angular 19+ com Signals e ReactiveForms
+        code: `// Componente Angular com Signals e ReactiveForms
 @Component({
   selector: 'app-task-manager',
   standalone: true,

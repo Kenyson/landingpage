@@ -11,7 +11,16 @@
               @for (skill of getSkillsByCategory(category.key); track skill.name) {
                 <div class="skill-item">
                   <div class="skill-icon">
-                    <i class="{{ skill.icon }}" style="font-size: 2rem; color: #60a5fa;"></i>
+                    <ng-container *ngIf="skill.icon === 'pi pi-angular'; else defaultIcon">
+                      <svg viewBox="0 0 48 48" aria-hidden="true" role="img">
+                        <path fill="currentColor" d="M24 0 3 10 6 28 24 48 42 28 45 10Z" />
+                        <path fill="currentColor" d="M24 0 42 10 38 24 24 40 10 24 6 10Z" />
+                        <path fill="currentColor" d="M17 18 24 34 31 18 24 22Z" />
+                      </svg>
+                    </ng-container>
+                    <ng-template #defaultIcon>
+                      <i class="{{ skill.icon }}"></i>
+                    </ng-template>
                   </div>
                   <div class="skill-info">
                     <h4 class="skill-name">{{ skill.name | translate }}</h4>
