@@ -30,8 +30,11 @@ export interface Translations {
     details: {
       location: string;
       nationality: string;
+      nationalityValue: string;
+      phone: string;
       age: string;
       languages: string;
+      languagesList: string;
     };
     education: {
       title: string;
@@ -480,8 +483,11 @@ export const translations: Record<Language, Translations> = {
       details: {
         location: 'Localização',
         nationality: 'Nacionalidade',
+        nationalityValue: 'Brasileiro',
+        phone: 'Telefone',
         age: 'Idade',
-        languages: 'Idiomas'
+        languages: 'Idiomas',
+        languagesList: 'Português (Nativo), Italiano (Fluente), Inglês (Avançado)'
       },
       education: {
          title: 'Formação',
@@ -1038,8 +1044,11 @@ projects: {
       details: {
         location: 'Location',
         nationality: 'Nationality',
+        nationalityValue: 'Brazilian',
+        phone: 'Phone',
         age: 'Age',
-        languages: 'Languages'
+        languages: 'Languages',
+        languagesList: 'Portuguese (Native), Italian (Fluent), English (Advanced)'
       },
 education: {
          title: 'Education',
@@ -1596,8 +1605,11 @@ projects: {
       details: {
         location: 'Posizione',
         nationality: 'Nazionalità',
+        nationalityValue: 'Brasiliano',
+        phone: 'Telefono',
         age: 'Età',
-        languages: 'Lingue'
+        languages: 'Lingue',
+        languagesList: 'Portoghese (Madrelingua), Italiano (Fluente), Inglese (Avanzato)'
       },
 education: {
          title: 'Formazione',
