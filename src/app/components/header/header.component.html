@@ -24,10 +24,10 @@
        </li>
      </ul>
      <div class="nav-actions">
-       <a href="assets/resume.docx" class="resume-btn" download>
-         <i class="pi pi-download"></i>
-         <span class="btn-text">{{ 'header.resume' | translate }}</span>
-       </a>
+        <a [href]="getResumePath()" class="resume-btn" download>
+          <i class="pi pi-download"></i>
+          <span class="btn-text">{{ 'header.resume' | translate }}</span>
+        </a>
        <div class="language-switcher">
          <button #langMenuBtn class="lang-btn" (click)="toggleLangMenu()" aria-label="Change language">
            <span class="lang-flag">{{ translationService.availableLanguages.find(l => l.code === translationService.currentLanguage())?.flag }}</span>

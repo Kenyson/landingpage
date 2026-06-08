@@ -487,7 +487,7 @@ export const translations: Record<Language, Translations> = {
         phone: 'Telefone',
         age: 'Idade',
         languages: 'Idiomas',
-        languagesList: 'Português (Nativo), Italiano (Fluente), Inglês (Avançado)'
+        languagesList: 'Italiano, Português, Inglês'
       },
       education: {
          title: 'Formação',
@@ -1040,7 +1040,7 @@ projects: {
     },
     about: {
       title: 'About Me',
-      intro: 'Front-End Developer with experience in developing and modernizing enterprise web applications using Angular, AngularJS, TypeScript and modern web technologies. I have participated in digital transformation projects for the logistics and customs sector, contributing to the migration of legacy systems to modern architectures and the development of new features with high operational impact. I stand out for problem-solving skills, collaboration in Agile teams, attention to code quality and continuous learning. I am looking for opportunities to grow professionally in innovative and international contexts.',
+      intro: 'Front-End Developer with experience in developing and modernizing web applications using Angular, AngularJS, TypeScript and modern web technologies. I have participated in digital transformation projects for the logistics and customs sector, contributing to the migration of legacy systems to modern architectures and the development of new features with high operational impact. I stand out for problem-solving skills, collaboration in Agile teams, attention to code quality and continuous learning. I am looking for opportunities to grow professionally in innovative and international contexts.',
       details: {
         location: 'Location',
         nationality: 'Nationality',
@@ -1048,7 +1048,7 @@ projects: {
         phone: 'Phone',
         age: 'Age',
         languages: 'Languages',
-        languagesList: 'Portuguese (Native), Italian (Fluent), English (Advanced)'
+        languagesList: 'Italian, Portuguese, English'
       },
 education: {
          title: 'Education',
@@ -1601,7 +1601,7 @@ projects: {
     },
     about: {
       title: 'Su di Me',
-      intro: 'Front-End Developer con esperienza nello sviluppo e nella modernizzazione di applicazioni web enterprise utilizzando Angular, AngularJS, TypeScript e tecnologie moderne del web. Ho partecipato a progetti di trasformazione digitale per il settore logistico e doganale, contribuendo alla migrazione di sistemi legacy verso architetture moderne e allo sviluppo di nuove funzionalità ad alto impatto operativo. Mi distinguo per capacità di problem solving, collaborazione in team Agile, attenzione alla qualidade del codice e apprendimento continuo. Sono alla ricerca di opportunità che mi permettano di crescere professionalmente in contesti innovativi e internazionali.',
+      intro: 'Front-End Developer con esperienza nello sviluppo e nella modernizzazione di applicazioni web utilizzando Angular, AngularJS, TypeScript e tecnologie moderne del web. Ho partecipato a progetti di trasformazione digitale per il settore logistico e doganale, contribuendo alla migrazione di sistemi legacy verso architetture moderne e allo sviluppo di nuove funzionalità ad alto impatto operativo. Mi distinguo per capacità di problem solving, collaborazione in team Agile, attenzione alla qualidade del codice e apprendimento continuo. Sono alla ricerca di opportunità che mi permettano di crescere professionalmente in contesti innovativi e internazionali.',
       details: {
         location: 'Posizione',
         nationality: 'Nazionalità',
@@ -1609,7 +1609,7 @@ projects: {
         phone: 'Telefono',
         age: 'Età',
         languages: 'Lingue',
-        languagesList: 'Portoghese (Madrelingua), Italiano (Fluente), Inglese (Avanzato)'
+        languagesList: 'Italiano, Portoghese, Inglese'
       },
 education: {
          title: 'Formazione',

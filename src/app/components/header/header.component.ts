@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../translation.pipe';
 import { ThemeService } from '../theme.service';
 import { TranslationService } from '../translation.service';
+import { Language } from '../portfolio-translations';
 
 @Component({
   selector: 'app-header',
@@ -77,6 +78,16 @@ export class HeaderComponent implements AfterViewInit {
   setLanguage(langCode: string): void {
     this.translationService.setLanguage(langCode as any);
     this.langMenuOpen.set(false);
+  }
+
+  getResumePath(): string {
+    const lang = this.translationService.currentLanguage();
+    const fileMap: Record<Language, string> = {
+      pt: 'assets/CV_Kenyson_Oliveira_loureiro_pt.pdf',
+      it: 'assets/CV_Kenyson_Oliveira_loureiro_it.pdf',
+      en: 'assets/CV_Kenyson_Oliveira_loureiro_en.pdf'
+    };
+    return fileMap[lang] || fileMap.en;
   }
 
   ngAfterViewInit() {
