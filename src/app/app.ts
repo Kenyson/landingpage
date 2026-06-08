@@ -14,12 +14,12 @@ import { TranslationService } from './components/translation.service';
 @Component({
   selector: 'app-root',
   imports: [
-    SlideAnimationDirective,
+    // SlideAnimationDirective,
     HeaderComponent,
     FooterComponent,
     HeroComponent,
     AboutComponent,
-    SkillsComponent,
+    // SkillsComponent,
     ExperienceComponent,
     ProjectsComponent,
     ContactComponent,
